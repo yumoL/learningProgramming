@@ -1,14 +1,11 @@
 # Movies_comment
 
-Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään foruumi elokuvista, jossa käyttäjä voi kirjoittaa palautteita elokuvista ja lukea tietokantaan tallennetuja kirjoituksia. Lisäksi käyttäjä voi kommentoida muiden kirjoituksia ja kerätä muiden kirjoituksia omaan kansioon. 
-Sovelluksen ylläpitäjällä on oma liittymä, jonka kautta hän ylläpitää sovelluksen käyttäjien jäsentietoja ja siivota kirjoituskantaa.
+Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään videopalvelu, jossa käyttäjä pääse katsomaan tietokantaan tallennetuja videoita ja komentoimaan videoita. Lisäksi käyttäjä voi halutessaan merkitä tiettyjä videoita omiksi suosituiksi. Sovelluksen ylläpitäjällä on oma liittymä, jonka kautta hän pystyy ylläpitämään käyttäjien jäsentietoja, lisäämään uusia videoit ja poistamaan vanhoja viedeoita.
 
-Toimintoja:
-- kirjautuminen
-- uuden käyttäjän rekisteri
-- ulos kirjautuminen
-- uuden kirjoituksen lisääminen ja oman kirjoituksen muokkaaminen
-- muiden kirjoitusten kommentoiminen
-- oman kirjoituksen poistaminen
-- muiden kirjoitusten kerääminen
-- kirjoitusten luokitus esim. aiheiden perusteella
+Toimintoja: 
+- Sisään ja ulos kirjautuminen
+- Uuden käyttäjän rekisteri
+- Kommentin muokkaaminen ja lisääminen
+- Videoiden lisääminen ja poistaminen
+- Videoiden luokitus eisim. sisällön ja päivämäärän perusteella
+- Vidoiden etsiminen nimen perusteella
