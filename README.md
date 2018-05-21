@@ -1,6 +1,6 @@
 # Movies_comment
 
-Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään videopalvelu, jossa käyttäjä pääse katsomaan tietokantaan tallennetuja videoita ja komentoimaan videoita. Lisäksi käyttäjä voi halutessaan merkitä tiettyjä videoita omiksi suosituiksi. Sovelluksen ylläpitäjällä on oma liittymä, jonka kautta hän pystyy ylläpitämään käyttäjien jäsentietoja, lisäämään uusia videoit ja poistamaan vanhoja viedeoita.
+Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään videopalvelu, jossa käyttäjä pääsee katsomaan tietokantaan tallennetuja videoita ja komentoimaan videoita. Lisäksi käyttäjä voi halutessaan merkitä tiettyjä videoita omiksi suosituiksi. Sovelluksen ylläpitäjällä on oma liittymä, jonka kautta hän pystyy ylläpitämään käyttäjien jäsentietoja, lisäämään uusia videoita ja poistamaan vanhoja viedeoita.
 
 Toimintoja: 
 - Sisään ja ulos kirjautuminen
