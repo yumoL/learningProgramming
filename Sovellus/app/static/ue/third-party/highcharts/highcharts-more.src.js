@@ -6,7 +6,7 @@
  *
  * (c) 2009-2013 Torstein Hønsi
  *
- * License: www.highcharts.com/license
+ * License: www.highcharts.com/license 
  */
 
 // JSLint options:

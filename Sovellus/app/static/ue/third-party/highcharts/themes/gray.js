@@ -14,7 +14,7 @@ Highcharts.theme = {
 				[1, 'rgb(16, 16, 16)']
 			]
 		},
-		borderWidth: 0,
+		borderWidth: 0, 
 		borderRadius: 15,
 		plotBackgroundColor: null,
 		plotShadow: false,

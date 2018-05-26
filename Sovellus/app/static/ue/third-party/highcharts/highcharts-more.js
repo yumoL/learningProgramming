@@ -3,7 +3,7 @@
 
  (c) 2009-2013 Torstein Hønsi
 
- License: www.highcharts.com/license
+ License: www.highcharts.com/license 
 */
 (function(j,C){function J(a,b,c){this.init.call(this,a,b,c)}function K(a,b,c){a.call(this,b,c);if(this.chart.polar)this.closeSegment=function(a){var c=this.xAxis.center;a.push("L",c[0],c[1])},this.closedStacks=!0}function L(a,b){var c=this.chart,d=this.options.animation,g=this.group,f=this.markerGroup,e=this.xAxis.center,i=c.plotLeft,n=c.plotTop;if(c.polar){if(c.renderer.isSVG)if(d===!0&&(d={}),b){if(c={translateX:e[0]+i,translateY:e[1]+n,scaleX:0.001,scaleY:0.001},g.attr(c),f)f.attrSetters=g.attrSetters,
 f.attr(c)}else c={translateX:i,translateY:n,scaleX:1,scaleY:1},g.animate(c,d),f&&f.animate(c,d),this.animate=null}else a.call(this,b)}var P=j.arrayMin,Q=j.arrayMax,s=j.each,F=j.extend,p=j.merge,R=j.map,r=j.pick,v=j.pInt,m=j.getOptions().plotOptions,h=j.seriesTypes,x=j.extendClass,M=j.splat,o=j.wrap,N=j.Axis,u=j.Tick,z=j.Series,q=h.column.prototype,t=Math,D=t.round,A=t.floor,S=t.max,w=function(){};F(J.prototype,{init:function(a,b,c){var d=this,g=d.defaultOptions;d.chart=b;if(b.angular)g.background=

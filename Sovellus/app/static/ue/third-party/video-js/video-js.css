@@ -10,7 +10,7 @@ replace all occurances of 'vjs-default-skin' with a new name. Then add your new
 skin name to your video tag instead of the default skin.
 e.g. <video class="video-js my-skin-name">
 */
-.vjs-default-skin {
+.vjs-default-skin { 
   color: #cccccc;
 }
 /* Custom Icon Font

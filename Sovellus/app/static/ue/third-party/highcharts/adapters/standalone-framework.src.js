@@ -7,7 +7,7 @@
  */
 
 
-/*global Highcharts */
+/*global Highcharts */ 
 var HighchartsAdapter = (function () {
 
 var UNDEFINED,

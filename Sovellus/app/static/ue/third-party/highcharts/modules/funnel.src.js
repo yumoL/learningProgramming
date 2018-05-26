@@ -8,7 +8,7 @@
  */
 
 /*global Highcharts */
-(function (Highcharts) {
+(function (Highcharts) { 
 	
 'use strict';
 

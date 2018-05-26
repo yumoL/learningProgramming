@@ -3,7 +3,7 @@
  */
 
 // HTML5 Shiv. Must be in <head> to support older browsers.
-document.createElement('video');
+document.createElement('video'); 
 document.createElement('audio');
 document.createElement('track');
 

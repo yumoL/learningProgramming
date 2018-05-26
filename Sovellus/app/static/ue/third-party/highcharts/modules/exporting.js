@@ -4,7 +4,7 @@
 
  (c) 2010-2013 Torstein Hønsi
 
- License: www.highcharts.com/license
+ License: www.highcharts.com/license 
 */
 (function(f){var A=f.Chart,t=f.addEvent,C=f.removeEvent,k=f.createElement,n=f.discardElement,u=f.css,o=f.merge,r=f.each,p=f.extend,D=Math.max,j=document,B=window,E=f.isTouchDevice,F=f.Renderer.prototype.symbols,x=f.getOptions(),y;p(x.lang,{printChart:"Print chart",downloadPNG:"Download PNG image",downloadJPEG:"Download JPEG image",downloadPDF:"Download PDF document",downloadSVG:"Download SVG vector image",contextButtonTitle:"Chart context menu"});x.navigation={menuStyle:{border:"1px solid #A0A0A0",
 background:"#FFFFFF",padding:"5px 0"},menuItemStyle:{padding:"0 10px",background:"none",color:"#303030",fontSize:E?"14px":"11px"},menuItemHoverStyle:{background:"#4572A5",color:"#FFFFFF"},buttonOptions:{symbolFill:"#E0E0E0",symbolSize:14,symbolStroke:"#666",symbolStrokeWidth:3,symbolX:12.5,symbolY:10.5,align:"right",buttonSpacing:3,height:22,theme:{fill:"white",stroke:"none"},verticalAlign:"top",width:24}};x.exporting={type:"image/png",url:"http://export.highcharts.com/",buttons:{contextButton:{menuClassName:"highcharts-contextmenu",

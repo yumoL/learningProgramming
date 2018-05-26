@@ -6,7 +6,7 @@
  *
  * License: www.highcharts.com/license
  */
-
+ 
 /*
  * The Highcharts Data plugin is a utility to ease parsing of input sources like
  * CSV, HTML tables or grid views into basic configuration options for use 

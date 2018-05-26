@@ -19,7 +19,7 @@ Highcharts.theme = {
 		className: 'dark-container',
 		plotBackgroundColor: 'rgba(255, 255, 255, .1)',
 		plotBorderColor: '#CCCCCC',
-		plotBorderWidth: 1
+		plotBorderWidth: 1 
 	},
 	title: {
 		style: {

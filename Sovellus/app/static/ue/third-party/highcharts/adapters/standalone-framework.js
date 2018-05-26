@@ -3,7 +3,7 @@
 
  Standalone Highcharts Framework
 
- License: MIT License
+ License: MIT License 
 */
 var HighchartsAdapter=function(){function o(c){function a(a,b,d){a.removeEventListener(b,d,!1)}function d(a,b,d){d=a.HCProxiedMethods[d.toString()];a.detachEvent("on"+b,d)}function b(b,c){var f=b.HCEvents,i,g,k,j;if(b.removeEventListener)i=a;else if(b.attachEvent)i=d;else return;c?(g={},g[c]=!0):g=f;for(j in g)if(f[j])for(k=f[j].length;k--;)i(b,j,f[j][k])}c.HCExtended||Highcharts.extend(c,{HCExtended:!0,HCEvents:{},bind:function(b,a){var d=this,c=this.HCEvents,g;if(d.addEventListener)d.addEventListener(b,
 a,!1);else if(d.attachEvent){g=function(b){a.call(d,b)};if(!d.HCProxiedMethods)d.HCProxiedMethods={};d.HCProxiedMethods[a.toString()]=g;d.attachEvent("on"+b,g)}c[b]===r&&(c[b]=[]);c[b].push(a)},unbind:function(c,h){var f,i;c?(f=this.HCEvents[c]||[],h?(i=HighchartsAdapter.inArray(h,f),i>-1&&(f.splice(i,1),this.HCEvents[c]=f),this.removeEventListener?a(this,c,h):this.attachEvent&&d(this,c,h)):(b(this,c),this.HCEvents[c]=[])):(b(this),this.HCEvents={})},trigger:function(b,a){var d=this.HCEvents[b]||

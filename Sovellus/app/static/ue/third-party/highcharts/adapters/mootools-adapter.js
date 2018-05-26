@@ -4,7 +4,7 @@
 
  (c) 2010-2013 Torstein Hønsi
 
- License: www.highcharts.com/license
+ License: www.highcharts.com/license 
 */
 (function(){var e=window,h=document,f=e.MooTools.version.substring(0,3),i=f==="1.2"||f==="1.1",j=i||f==="1.3",g=e.$extend||function(){return Object.append.apply(Object,arguments)};e.HighchartsAdapter={init:function(a){var b=Fx.prototype,c=b.start,d=Fx.Morph.prototype,e=d.compute;b.start=function(b,d){var e=this.element;if(b.d)this.paths=a.init(e,e.d,this.toD);c.apply(this,arguments);return this};d.compute=function(b,c,d){var f=this.paths;if(f)this.element.attr("d",a.step(f[0],f[1],d,this.toD));else return e.apply(this,
 arguments)}},adapterRun:function(a,b){if(b==="width"||b==="height")return parseInt($(a).getStyle(b),10)},getScript:function(a,b){var c=h.getElementsByTagName("head")[0],d=h.createElement("script");d.type="text/javascript";d.src=a;d.onload=b;c.appendChild(d)},animate:function(a,b,c){var d=a.attr,f=c&&c.complete;if(d&&!a.setStyle)a.getStyle=a.attr,a.setStyle=function(){var a=arguments;this.attr.call(this,a[0],a[1][0])},a.$family=function(){return!0};e.HighchartsAdapter.stop(a);c=new Fx.Morph(d?a:$(a),

@@ -16,7 +16,7 @@
 		extend = H.extend;
 
 	// Add language option
-	extend(defaultOptions.lang, {
+	extend(defaultOptions.lang, { 
 		noData: 'No data to display'
 	});
 	

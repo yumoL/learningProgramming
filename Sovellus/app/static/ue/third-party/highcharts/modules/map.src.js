@@ -3,7 +3,7 @@
  *
  * (c) 2011-2013 Torstein Hønsi
  *
- * License: www.highcharts.com/license
+ * License: www.highcharts.com/license 
  */
 
 /* 

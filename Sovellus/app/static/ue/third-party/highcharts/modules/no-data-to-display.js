@@ -3,7 +3,7 @@
  Plugin for displaying a message when there is no data visible in chart.
 
  (c) 2010-2013 Highsoft AS
- Author: Øystein Moseng
+ Author: Øystein Moseng 
 
  License: www.highcharts.com/license
 */

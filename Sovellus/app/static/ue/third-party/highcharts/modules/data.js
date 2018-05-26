@@ -4,7 +4,7 @@
  (c) 2012-2013 Torstein Hønsi
  Last revision 2013-06-07
 
- License: www.highcharts.com/license
+ License: www.highcharts.com/license 
 */
 (function(h){var k=h.each,m=function(b,a){this.init(b,a)};h.extend(m.prototype,{init:function(b,a){this.options=b;this.chartOptions=a;this.columns=b.columns||this.rowsToColumns(b.rows)||[];this.columns.length?this.dataFound():(this.parseCSV(),this.parseTable(),this.parseGoogleSpreadsheet())},getColumnDistribution:function(){var b=this.chartOptions,a=b&&b.chart&&b.chart.type,c=[];k(b&&b.series||[],function(b){c.push((h.seriesTypes[b.type||a||"line"].prototype.pointArrayMap||[0]).length)});this.valueCount=
 {global:(h.seriesTypes[a||"line"].prototype.pointArrayMap||[0]).length,individual:c}},dataFound:function(){this.parseTypes();this.findHeaderRow();this.parsed();this.complete()},parseCSV:function(){var b=this,a=this.options,c=a.csv,d=this.columns,f=a.startRow||0,i=a.endRow||Number.MAX_VALUE,j=a.startColumn||0,e=a.endColumn||Number.MAX_VALUE,g=0;c&&(c=c.replace(/\r\n/g,"\n").replace(/\r/g,"\n").split(a.lineDelimiter||"\n"),k(c,function(c,h){var n=b.trim(c),p=n.indexOf("#")===0;h>=f&&h<=i&&!p&&n!==""&&

@@ -14,7 +14,7 @@ Highcharts.theme = {
 				[1, 'rgb(0, 0, 0)']
 			]
 		},
-		borderColor: '#000000',
+		borderColor: '#000000', 
 		borderWidth: 2,
 		className: 'dark-container',
 		plotBackgroundColor: 'rgba(255, 255, 255, .1)',

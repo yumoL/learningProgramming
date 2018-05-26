@@ -15,7 +15,7 @@ window.baidu = baidu;
 
 window.UE = baidu.editor =  window.UE || {};
 
-UE.plugins = {};
+UE.plugins = {}; 
 
 UE.commands = {};
 

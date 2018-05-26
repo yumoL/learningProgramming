@@ -3,7 +3,7 @@
     font-family: monospace;
 }
 
-.CodeMirror-scroll {
+.CodeMirror-scroll { 
     overflow: auto;
     height: 300px;
     /* This is needed to prevent an IE[67] bug where the scrolled content

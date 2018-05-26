@@ -5,7 +5,7 @@
  * Use it if you like it
  *
  */
-function RGBColor(color_string)
+function RGBColor(color_string) 
 {
     this.ok = false;
 
