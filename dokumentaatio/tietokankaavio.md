@@ -4,7 +4,7 @@
 
 -Käyttäjä kirjoittaa arvoteluja(Art) jostain elokuvasta. Kirjoituksella on otsikko(title), kategoria(tag), sisältö(content) ja muokkaamisaika(addtime). Yksi käyttäjä voi kirjoittaa monta kirjoitusta, yhdellä kirjoituksella on vain yksi kirjoittaja.
 
--Käyttäjä voi kommentoida(Comment) muiden kirjoituksia. Jokaisella komentilla on sisältö(content) ja muokkaamisaika(addtime). Käyttäjällä voi olla monta kommentia, mutta yhdellä komentilla on vain yksi kirjoittaja. Yhdellä kirjoituksella voi olla monta komenttia, mutta yksi komentti vain liittyy yhteen kirjoitukseen.
+-Käyttäjä voi kommentoida(Comment) muiden kirjoituksia. Jokaisella komentilla on sisältö(content) ja muokkaamisaika(addtime). Käyttäjällä voi olla monta kommentia, mutta yhdellä komentilla on vain yksi kirjoittaja. Yhdellä kirjoituksella voi olla monta komenttia, mutta yksi komentti liittyy vain yhteen kirjoitukseen.
 
 -Yhdellä käyttäjällä voi olla monta kokoelmaa(Col) esim. artikkelin aiheen perusteella. Yhdessä kokoelmassa voi olla monta kirjoitusta, myös yksi kirjoitus voi kuulua eri käyttäjien kokoelmaan. 
 
