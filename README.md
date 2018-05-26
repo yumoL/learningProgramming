@@ -12,4 +12,6 @@ Toimintoja:
 - Kirjoitusten luokitus kirjoittajan nimen tai aiheen perusteella
 - Kirjoitusten hakeminen kirjoittajan nimen tai aiheen tai artikkelin iän perusteella
 
-[linkki Herokuun](https://tsoha-python-moviesforum.herokuapp.com/login/)
+[Herokuun](https://tsoha-python-moviesforum.herokuapp.com/login/)
+
+[Hahmotelma tietokantakaaviosta](https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/tietokankaavio.md)
