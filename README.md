@@ -1,4 +1,4 @@
-# Movies Review
+# Movies Forum
 
 Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään elokuvaforuumi, jossa käyttäjät voivat kirjoittaa tietokantaan arvosteluja elokuvista ja kommentoida muiden kirjoituksia. Kirjoituksia voi hakea kirjoittajan nimen tai aiheen tai artikkelin iän perusteella.
 
