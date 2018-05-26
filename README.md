@@ -12,4 +12,4 @@ Toimintoja:
 - Kirjoitusten luokitus kirjoittajan nimen tai aiheen perusteella
 - Kirjoitusten hakeminen kirjoittajan nimen tai aiheen tai artikkelin iän perusteella
 
-[linkki Herokuun](https://tsoha-python-moviescomment.herokuapp.com/demo)
+[linkki Herokuun](https://tsoha-python-moviesforum.herokuapp.com/login/)
