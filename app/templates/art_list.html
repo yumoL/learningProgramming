@@ -1,0 +1,37 @@
+{% extends "layout.html" %} 
+{% import "page.html" as pg %}
+
+{% block content %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Tag</th>
+            <th>Author</th>
+            <th>Publishing time</th>
+            <th>Editing</th>
+        </tr>
+    </thead>
+    {% for v in page_data.items %}
+    <tr>
+        <td>{{ v.title }}</td>
+        <td>{{ tag[v.tag-1][1] }}</td>
+        <td>{{ session['user'] }}</td>
+        <td>{{ v.addtime }}</td>
+        <td>
+            <a href="{{ url_for('art_edit',id=v.id) }}" class="btn btn-sm btn-outline-warning">Edit</a>
+            <a href="{{ url_for('art_del',id=v.id) }}" class="btn btn-sm btn-outline-danger">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{{ pg.page(page_data,'art_list') }}
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function (){
+        $("#m2").addClass("active")
+    });
+</script>
+{% endblock %}
