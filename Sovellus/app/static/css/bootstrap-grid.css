@@ -13,7 +13,7 @@ html {
   -ms-overflow-style: scrollbar;
 }
 
-*,
+*, 
 *::before,
 *::after {
   box-sizing: inherit;
