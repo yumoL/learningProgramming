@@ -31,7 +31,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField(
         "Login",
         render_kw={
-            "class": "btn btn-primary"
+            "class": "btn btn-primary" 
         }
     )
 
