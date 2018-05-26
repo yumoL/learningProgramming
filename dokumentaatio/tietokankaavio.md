@@ -1,1 +1,1 @@
-<img src="https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/tietokantakaavio.png",width="200">
+<img src="https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/tietokantakaavio.png">
