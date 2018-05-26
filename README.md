@@ -2,7 +2,7 @@
 
 Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään elokuvaforuumi, jossa käyttäjät voivat kirjoittaa tietokantaan arvosteluja elokuvista ja kommentoida muiden kirjoituksia. Kirjoituksia voi hakea kirjoittajan nimen tai aiheen tai artikkelin iän perusteella.
 
-Järjestelmän ylläpitäjällä on oma liittymä, jonka kautta hän ylläpitää käyttäjien jäsentietoja, siivota kirjoituskantaa ja määrittellä aiheita, joiden perusteella kirjoituksia voi ryhmitellä. 
+Järjestelmän ylläpitäjällä on oma liittymä, jonka kautta hän ylläpitää käyttäjien jäsentietoja, siivota kirjoituskantaa ja määritellä aiheita, joiden perusteella kirjoituksia voi ryhmitellä. 
 
 Toimintoja: 
 - Sisään ja ulos kirjautuminen
