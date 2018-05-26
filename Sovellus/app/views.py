@@ -4,7 +4,7 @@ from app.forms import LoginForm, RegisterForm, ArtForm, ArtEditForm
 from app.models import User, Art
 from werkzeug.security import generate_password_hash
 import datetime
-from functools import wraps
+from functools import wraps 
 
 #authority limitation
 
