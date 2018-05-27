@@ -1,2 +1,2 @@
-web: gunicorn --preload --workers 1 Sovellus:app
+web: gunicorn --preload --workers 1 Sovellus/app:app
 
