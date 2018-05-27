@@ -15,3 +15,5 @@ Toimintoja:
 [Herokuun](https://tsoha-python-moviesforum.herokuapp.com/login/)
 
 [Hahmotelma tietokantakaaviosta](https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/tietokankaavio.md)
+
+[User story](https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/userStory.md)
