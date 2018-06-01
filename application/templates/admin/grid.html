@@ -1,0 +1,101 @@
+<ul class="sidebar-menu">
+    <li class="header">Administration menu</li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <span>Tag</span>
+            <span class="label label-primary pull-right">2</span>
+        </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{{ url_for('admin.tag_add') }}">
+                    <i class="fa fa-circle-o"></i> Add tags
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.tag_list',page=1) }}">
+                    <i class="fa fa-circle-o"></i> Tag list
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-file-video-o" aria-hidden="true"></i>
+            <span>Movie</span>
+            <span class="label label-primary pull-right">2</span>
+        </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{{ url_for('admin.movie_add') }}">
+                    <i class="fa fa-circle-o"></i> Add movies
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.movie_list',page=1) }}">
+                    <i class="fa fa-circle-o"></i> Movie list
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <span>User</span>
+            <span class="label label-primary pull-right">1</span>
+        </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{{ url_for('admin.user_list') }}">
+                    <i class="fa fa-circle-o"></i> User list
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            <span>Comment</span>
+            <span class="label label-primary pull-right">1</span>
+        </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{{ url_for('admin.comment_list') }}">
+                    <i class="fa fa-circle-o"></i> Comment list
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!-- <li class="treeview">
+        <a href="#">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <span>Collection</span>
+            <span class="label label-primary pull-right">1</span>
+        </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{{ url_for('admin.moviecol_list') }}">
+                    <i class="fa fa-circle-o"></i> Collection list
+                </a>
+            </li>
+        </ul>
+    </li> -->
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-file-text" aria-hidden="true"></i>
+            <span>Log</span>
+            <span class="label label-primary pull-right">3</span>
+        </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{{ url_for('admin.oplog_list') }}">
+                    <i class="fa fa-circle-o"></i> Operation log list
+                </a>
+            </li>
+
+        </ul>
+    </li>
+
+</ul>
