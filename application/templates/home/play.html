@@ -1,0 +1,218 @@
+{% extends "home/home.html" %} {% block css %}
+<!--playing page-->
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='jwplayer/skins/stormtrooper.css') }}">
+<script type="text/javascript" src="{{url_for('static',filename='ueditor/ueditor.config.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='ueditor/ueditor.all.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='ueditor/lang/en/en.js') }}"></script>
+<script>
+    SyntaxHighlighter.all();
+</script>
+<!--playing page-->
+{% endblock %} {% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div id="moviecontainer"></div>
+    </div>
+    <div class="col-md-4" style="height:500px;">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="glyphicon glyphicon-facetime-video"></span>&nbsp;Plot</h3>
+            </div>
+            <div class="panel-body" style="height:459px;">
+                <table class="table">
+                    <tr>
+                        <td style="width:30%;color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-film"></span>&nbsp;Name
+                        </td>
+                        <td>X-men</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-tag"></span>&nbsp;Tag
+                        </td>
+                        <td>Science fiction</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-time"></span>&nbsp;Length
+                        </td>
+                        <td>05:04</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-map-marker"></span>&nbsp;Area
+                        </td>
+                        <td>USA</td>
+                    </tr>
+
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-calendar"></span>&nbsp;Showing time
+                        </td>
+                        <td>2013.7.12</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-play"></span>&nbsp;Played
+                        </td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-comment"></span>&nbsp;Comment number
+                        </td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-picture"></span>&nbsp;Plot
+                        </td>
+                        <td>
+                            Something about young X professor
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:6px;">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="glyphicon glyphicon-comment"></span>&nbsp;Comments</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <strong>Please
+                        <a href="{{ url_for('home.login') }}" target="_blank" class="text-info">login</a>，to comment！</strong>
+                </div>
+                <ol class="breadcrumb" style="margin-top:6px;">
+                    <li>All comments(5)</li>
+                </ol>
+                <form role="form" style="margin-bottom:6px;">
+                    <div class="form-group">
+                        <div>
+                            <label for="input_content">Content</label>
+                            <textarea id="input_content"></textarea>
+                        </div>
+                        <div class="col-xs-12" id="error_content"></div>
+                    </div>
+                    <a class="btn btn-success" id="btn-sub">
+                        <span class="glyphicon glyphicon-edit"></span>&nbsp;Publish the comment</a>
+                    &nbsp;
+                    <a class="btn btn-danger" id="btn-col">
+                        <span class="glyphicon glyphicon-heart"></span>&nbsp;Collect the movie</a>
+                </form>
+                <ul class="commentList">
+                    <li class="item cl">
+
+                        <div class="comment-main">
+                            <header class="comment-header">
+                                <div class="comment-meta">
+                                    <a class="comment-author" href="{{ url_for('home.user') }}">lym</a>
+                                    commented at
+                                    <time title="2016-12-07 09:12:51" datetime="2016-12-07 09:12:51">2017-03-01 09:12:51</time>
+                                </div>
+                            </header>
+                            <div class="comment-body">
+                                <p>hahaha</p>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                    <li class="item cl">
+                        <div class="comment-main">
+                            <header class="comment-header">
+                                <div class="comment-meta">
+                                    <a class="comment-author" href="{{ url_for('home.user') }}">lym</a>
+                                    commented comment-author
+                                    <time title="2016-12-07 09:12:51" datetime="2016-12-07 09:12:51">2017-03-01 09:12:51</time>
+                                </div>
+                            </header>
+                            <div class="comment-body">
+                                <p>Good film</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="col-md-12 text-center">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="First">
+                                    <span aria-hidden="true">First page</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">Previous page</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">1&nbsp;/&nbsp;10</a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">Next page</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="Last">
+                                    <span aria-hidden="true">Last page</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}
+<!--playing page-->
+<script src="{{url_for('static',filename='jwplayer/jwplayer.js') }}"></script>
+<script>
+    var ue = UE.getEditor('input_content', {
+        toolbars: [
+            ['fullscreen', 'emotion', 'preview', 'link']
+        ],
+        initialFrameWidth: "100%",
+        initialFrameHeight: "100",
+    });
+</script>
+<script type="text/javascript">
+    jwplayer.key = "P9VTqT/X6TSP4gi/hy1wy23BivBhjdzVjMeOaQ==";
+</script>
+<script type="text/javascript">
+    jwplayer("moviecontainer").setup({
+        flashplayer: "{{url_for('static',filename='jwplayer/jwplayer.flash.swf') }}",
+        playlist: [{
+            file: "{{url_for('static',filename='video/videoplayback.mp4') }}",
+            title: "x-men"
+        }],
+        modes: [{
+            type: "html5"
+        }, {
+            type: "flash",
+            src: "{{url_for('static',filename='jwplayer/jwplayer.flash.swf') }}"
+        }, {
+            type: "download"
+        }],
+        skin: {
+            name: "vapor"
+        },
+        "playlist.position": "left",
+        "playlist.size": 400,
+        height: 500,
+        width: 774,
+    });
+</script>
+<!--playing page-->
+{% endblock %}
