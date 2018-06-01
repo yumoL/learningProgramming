@@ -1,16 +1,17 @@
-# Movies Forum
+# Enjoy Movies
 
-Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään elokuvaforuumi, jossa käyttäjät voivat kirjoittaa tietokantaan arvosteluja elokuvista ja kommentoida muiden kirjoituksia. Kirjoituksia voi hakea kirjoittajan nimen tai aiheen tai artikkelin iän perusteella.
+Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään elokuvapalvelu, jossa käyttäjä pääsee katsomaan tietokantaan tallennetuja elokuvia ja komentoimaan elokuvia. Lisäksi käyttäjä voi halutessaan tykätä elokuvia.
 
-Järjestelmän ylläpitäjällä on oma liittymä, jonka kautta hän ylläpitää käyttäjien jäsentietoja, siivota kirjoituskantaa ja määritellä aiheita, joiden perusteella kirjoituksia voi ryhmitellä. 
+Sovelluksen ylläpitäjällä on oma liittymä, jonka kautta hän pystyy ylläpitämään käyttäjien jäsentietoja, lisäämään ja poistamaan elokuvia sekä määtitelemään aiheita, joiden perusteella elokuvat luokitellaan.
 
 Toimintoja: 
 - Sisään ja ulos kirjautuminen
 - Uuden käyttäjän rekisteri
-- Kommentin muokkaaminen ja lisääminen
-- Kirjoitusten lisääminen ja poistaminen
-- Kirjoitusten luokitus kirjoittajan nimen tai aiheen perusteella
-- Kirjoitusten hakeminen kirjoittajan nimen tai aiheen tai artikkelin iän perusteella
+- Kommentin lisääminen
+- Elokuvien lisääminen ja poistaminen
+- Elokuvien luokitus aiheen perusteella
+- Elokuvien järjestäytyminen 
+
 
 [Herokuun](https://tsoha-python-moviesforum.herokuapp.com/login/)
 
