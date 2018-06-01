@@ -16,7 +16,9 @@ Toimintoja:
 
 Heroku:
 [käyttäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/)
+
 [ylläpitäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/admin/)
+ylläpitäjän käyttäjätunnus on lym ja salasana 123
 
 [Hahmotelma tietokantakaaviosta](https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/tietokankaavio.md)
 
