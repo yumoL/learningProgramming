@@ -2,10 +2,10 @@
 
 -Käyttäjä(User) käyttää sovellusta, jokaisella käyttäjällä on oma uniikki käyttäjätunnus(name), salasana(pwd) ja rekisteröinnin aika(addtime)
 
--Käyttäjä kirjoittaa arvoteluja(Art) jostain elokuvasta. Kirjoituksella on otsikko(title), kategoria(tag), sisältö(content) ja muokkaamisaika(addtime). Yksi käyttäjä voi kirjoittaa monta kirjoitusta, yhdellä kirjoituksella on vain yksi kirjoittaja.
+Elokuvalla(Movie) on nimi(title),sen sisällön kuvaus(info),url-osoite(url), jonka kautta elokuva lähetettään palvelimelle. Lisäksi elokuvalla on katsojien määrä(playnum) ja komenttien määrä(commentnum),sekä alue(area),julkaisuaika(release_time),pituus(length) ja lisäämisaika(addtime). Yksi elokuva kuuluu vain yheen kategoriaan(Tag), toisaalta yhdellä kategorialla voi olla useampaa elokuvaa. 
 
--Käyttäjä voi kommentoida(Comment) muiden kirjoituksia. Jokaisella komentilla on sisältö(content) ja muokkaamisaika(addtime). Käyttäjällä voi olla monta kommentia, mutta yhdellä komentilla on vain yksi kirjoittaja. Yhdellä kirjoituksella voi olla monta komenttia, mutta yksi komentti liittyy vain yhteen kirjoitukseen.
+-Käyttäjä kirjoittaa kometteja(Comment) elokuvista. Komentilla on sisältö(content) ja muokkaamisaika(addtime). Yksi käyttäjä voi kirjoittaa useita komentteja useammasta elokuvasta, yhdellä komentilla on vain yksi kirjoittaja.
 
--Yhdellä käyttäjällä voi olla monta kokoelmaa(Col) esim. artikkelin aiheen perusteella. Yhdessä kokoelmassa voi olla monta kirjoitusta, myös yksi kirjoitus voi kuulua eri käyttäjien kokoelmaan. 
+-Käyttäjä voi tykätä elokuvia(Moviecol). Elokuvien tykkäämisellä on tykkäyksen lisäämisaika. Yksi käyttäjä voi tykätä useampaa elokuvaa ja yhdellä elokuvalla on olla useampaa tykkääjää. 
 
 -Sovelluksella on ylläpitäjä(Admin), ylläpitäjällä voi olla monta päiväkirjaa toiminnoistaan, mutta yksi päiväkirja liittyy vain yhteen ylläpitäjään. 
