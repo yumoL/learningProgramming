@@ -1,14 +1,5 @@
 {% extends "admin/admin.html" %} {% block content %}
-<section class="content-header">
-    <h1>Administration</h1>
-    <ol class="breadcrumb">
-        <li>
-            <a href="#">
-                <i class="fa fa-dashboard"></i> User administration</a>
-        </li>
-        <li class="active">Check Users</li>
-    </ol>
-</section>
+
 <section class="content" id="showcontent">
     <div class="row">
         <div class="col-md-12">
@@ -21,17 +12,17 @@
                         <tbody>
                             <tr>
                                 <td class="td_bd">id：</td>
-                                <td>1</td>
+                                <td>{{ user.id }}</td>
                             </tr>
                             <tr>
                                 <td class="td_bd">Username：</td>
-                                <td>lym</td>
+                                <td>{{ user.name }}</td>
                             </tr>
                             
                             <tr>
                                 <td class="td_bd">Register time：</td>
                                 <td>
-                                    2017-01-01 12:00:00
+                                    {{ user.addtime }}
                                 </td>
                             </tr>
                             
