@@ -16,7 +16,7 @@ Toimintoja:
 
 Heroku:
 
-[käyttäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/)
+[käyttäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/1/)
 käyttäjätunnus:aleksi salasana:123
 
 [ylläpitäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/admin/)
