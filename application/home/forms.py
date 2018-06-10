@@ -82,3 +82,52 @@ class LoginForm(FlaskForm):
             "class": "btn btn-lg btn-primary btn-block",
         }
     )
+
+class UserdetailForm(FlaskForm):
+    name=StringField(
+        label="Username",
+        validators=[
+            DataRequired("Please enter a username")
+        ],
+        render_kw={
+            "class":"form-control",
+            "placeholder":"Username"
+        }
+    )
+    submit = SubmitField(
+        'Save modification',
+        render_kw={
+            "class": "btn btn-success",
+        }
+    )
+
+class PwdForm(FlaskForm):
+    old_pwd=PasswordField(
+        label="Old password",
+        validators=[
+            DataRequired("Please enter your old password")
+        ],
+        description="Old password",
+        render_kw={
+            "class":"form-control",
+            "placeholder": "Old password"
+        }
+    )
+    new_pwd=PasswordField(
+        label="New password",
+        validators=[
+            DataRequired("Please enter your new password")
+        ],
+        description="New password",
+        render_kw={
+            "class":"form-control",
+            "placeholder": "New password"
+        }
+    )
+    submit = SubmitField(
+        'Change password',
+        render_kw={
+            "class": "btn btn-success",
+        }
+    )
+    
