@@ -142,3 +142,33 @@ class MovieForm(FlaskForm):
             "class": "btn btn-primary",
         }
     )
+
+class PwdForm(FlaskForm):
+    old_pwd=PasswordField(
+        label="Old password",
+        validators=[
+            DataRequired("PLease enter your old password")
+        ],
+        description="Old password",
+        render_kw={
+            "class":"form-control",
+            "placeholder":"Old password"
+        }
+    )
+    new_pwd=PasswordField(
+        label="New password",
+        validators=[
+            DataRequired("PLease enter new password")
+        ],
+        description="New password",
+        render_kw={
+            "class":"form-control",
+            "placeholder":"New password"
+        }
+    )
+    submit = SubmitField(
+        'Edit',
+        render_kw={
+            "class": "btn btn-primary",
+        }
+    )

@@ -1,14 +1,23 @@
 from . import admin
 from flask import render_template, redirect, url_for, flash, session, request
-from application.admin.forms import LoginForm, TagForm, MovieForm
-from application.models import Admin, Tag, Movie
+from application.admin.forms import LoginForm, TagForm, MovieForm,PwdForm
+from application.models import Admin, Tag, Movie, User, Comment,Oplog
 from functools import wraps
 from werkzeug.utils import secure_filename
 from application import db, app
+from sqlalchemy.sql import text
 from datetime import datetime
 import datetime
 import os
 import uuid
+
+# admin's login time
+@admin.context_processor
+def tpl_extra():
+    data=dict(
+        online_time=datetime.datetime.now().strftime("%m-%d-%Y %H:%M:%S")
+    )
+    return data
 
 # no login->nothing
 
@@ -48,6 +57,7 @@ def login():
             flash("No such username or password", 'err')
             return redirect(url_for("admin.login"))
         session["admin"] = data["account"]
+        session["admin_id"]=admin.id
         return redirect(request.args.get("next") or url_for("admin.index"))
     return render_template("admin/login.html", form=form)
 
@@ -56,13 +66,28 @@ def login():
 @admin_login_req
 def logout():
     session.pop("admin", None)
+    session.pop("admin_id",None)
     return redirect(url_for("admin.login"))
 
-
-@admin.route("/admin/pwd/")
+#change password
+@admin.route("/admin/pwd/",methods=["GET","POST"])
 @admin_login_req
 def pwd():
-    return render_template("admin/pwd.html")
+    form=PwdForm()
+    if form.validate_on_submit():
+        data = form.data
+        admin = Admin.query.filter_by(name=session["admin"],pwd=data["old_pwd"]).first()
+        if not admin:
+            flash("Wrong password", 'err')
+            return redirect(url_for("admin.pwd"))
+        
+        admin.pwd=data["new_pwd"]
+        db.session().add(admin)
+        db.session().commit()
+        flash("Password has been changed, please login again","ok")
+        return redirect(url_for('admin.logout'))
+        
+    return render_template("admin/pwd.html",form=form)
 
 
 @admin.route("/admin/tag/add/", methods=["GET", "POST"])
@@ -82,6 +107,13 @@ def tag_add():
         db.session().add(tag)
         db.session().commit()
         flash("Tag is saved successfully", "ok")
+        oplog=Oplog(
+            admin_id=session["admin_id"],
+            reason="added tag %s" % data["name"],
+            addtime=datetime.datetime.now()
+        )
+        db.session().add(oplog)
+        db.session().commit()
         redirect(url_for('admin.tag_add'))
     return render_template("admin/tag_add.html", form=form)
 
@@ -112,6 +144,13 @@ def tag_edit(id=None):
         db.session().add(tag)
         db.session().commit()
         flash("Tag is edited successfully", "ok")
+        oplog=Oplog(
+            admin_id=session["admin_id"],
+            reason="edited tag %s" % data["name"],
+            addtime=datetime.datetime.now()
+        )
+        db.session().add(oplog)
+        db.session().commit()
         redirect(url_for('admin.tag_edit', id=id))
     return render_template("admin/tag_edit.html", form=form, tag=tag)
 
@@ -123,6 +162,13 @@ def tag_del(id=None):
     db.session().delete(tag)
     db.session().commit()
     flash("Tag has been deleted successfully", "ok")
+    oplog=Oplog(
+            admin_id=session["admin_id"],
+            reason="deleted tag %s" % tag.name,
+            addtime=datetime.datetime.now()
+        )
+    db.session().add(oplog)
+    db.session().commit()
     return redirect(url_for('admin.tag_list', page=1))
 
 
@@ -153,6 +199,13 @@ def movie_add():
         db.session().add(movie)
         db.session().commit()
         flash("The movie has been added successfully", "ok")
+        oplog=Oplog(
+            admin_id=session["admin_id"],
+            reason="added movie %s" % data["title"],
+            addtime=datetime.datetime.now()
+        )
+        db.session().add(oplog)
+        db.session().commit()
         return redirect(url_for('admin.movie_add'))
     return render_template("admin/movie_add.html", form=form)
 
@@ -175,6 +228,13 @@ def movie_del(id=None):
     db.session().delete(movie)
     db.session().commit()
     flash("Movie is deleted", "ok")
+    oplog=Oplog(
+            admin_id=session["admin_id"],
+            reason="deleted movie %s" % movie.title,
+            addtime=datetime.datetime.now()
+        )
+    db.session().add(oplog)
+    db.session().commit()
     return redirect(url_for('admin.movie_list', page=1))
 
 
@@ -215,26 +275,81 @@ def movie_edit(id=None):
         db.session().add(movie)
         db.session().commit()
         flash("The movie has bee successfully edited", "ok")
+        oplog=Oplog(
+            admin_id=session["admin_id"],
+            reason="edited movie %s" % data["title"],
+            addtime=datetime.datetime.now()
+        )
+        db.session().add(oplog)
+        db.session().commit()
         return redirect(url_for('admin.movie_edit', id=id))
     return render_template("admin/movie_edit.html", form=form, movie=movie)
 
 
-@admin.route("/admin/user/list/")
+@admin.route("/admin/user/list/<int:page>/", methods=["GET"])
 @admin_login_req
-def user_list():
-    return render_template("admin/user_list.html")
+def user_list(page=None):
+    if page is None:
+        page == 1
+    page_data = User.query.order_by(
+        User.addtime.desc()
+    ).paginate(page=page, per_page=10)
+    return render_template("admin/user_list.html", page_data=page_data)
 
 
-@admin.route("/admin/user/view/")
+@admin.route("/admin/user/view/<int:id>/", methods=["GET"])
 @admin_login_req
-def user_view():
-    return render_template("admin/user_view.html")
+def user_view(id=None):
+    user = User.query.get_or_404(int(id))
+    return render_template("admin/user_view.html", user=user)
 
 
-@admin.route("/admin/comment/list/")
+@admin.route("/user/del/<int:id>/", methods=["GET"])
 @admin_login_req
-def comment_list():
-    return render_template("admin/comment_list.html")
+# @admin_auth
+def user_del(id=None):
+    user = User.query.get_or_404(int(id))
+    db.session().delete(user)
+    db.session().commit()
+    flash("User has been deleted", "ok")
+    oplog=Oplog(
+            admin_id=session["admin_id"],
+            reason="deleted user %s" % user.name,
+            addtime=datetime.datetime.now()
+        )
+    db.session().add(oplog)
+    db.session().commit()
+    return redirect(url_for('admin.user_list', page=1))
+
+
+@admin.route("/admin/comment/list/<int:page>/", methods=["GET"])
+@admin_login_req
+def comment_list(page=None):
+    if page is None:
+        page = 1
+    page_data = Comment.query.join(Movie).join(User).filter(Movie.id == Comment.movie_id,
+                                                            User.id == Comment.user_id).order_by(Comment.addtime.desc()).paginate(page=page, per_page=10)
+
+    return render_template("admin/comment_list.html", page_data=page_data)
+
+@admin.route("/comment/del/<int:id>/", methods=["GET"])
+@admin_login_req
+# @admin_auth
+def comment_del(id=None):
+    comment = Comment.query.get_or_404(int(id))
+    db.session().delete(comment)
+    db.session().commit()
+    flash("Comment has been deleted", "ok")
+    oplog=Oplog(
+            admin_id=session["admin_id"],
+            reason="deleted comment %s" % comment.content,
+            addtime=datetime.datetime.now()
+        )
+    db.session().add(oplog)
+    db.session().commit()
+    return redirect(url_for('admin.comment_list', page=1))
+
+
 
 
 @admin.route("/admin/moviecol/list/")
@@ -243,7 +358,16 @@ def moviecol_list():
     return render_template("admin/moviecol_list.html")
 
 
-@admin.route("/admin/oplog/list/")
+@admin.route("/admin/oplog/list/<int:page>/",methods=["GET"])
 @admin_login_req
-def oplog_list():
-    return render_template("admin/oplog_list.html")
+def oplog_list(page=None):
+    if page is None:
+        page=1
+    page_data=Oplog.query.join(
+        Admin
+    ).filter(
+        Admin.id==Oplog.admin_id,
+    ).order_by(
+        Oplog.addtime.desc()
+    ).paginate(page=page,per_page=10)
+    return render_template("admin/oplog_list.html",page_data=page_data)
