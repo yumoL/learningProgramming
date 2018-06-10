@@ -2,26 +2,27 @@
 {% if data %}
 <ul class="pagination pagination-sm no-margin pull-right">
     <li>
-        <a href="{{ url_for(url,page=1) }}">first page</a>
+        <a href="{{ url_for(url,page=1) }}">first page &nbsp;&nbsp;</a>
     </li>
     {% if data.has_prev %}
     <li>
-        <a href="{{ url_for(url,page=data.prev_num) }}">previous page</a>
+        
+        <a href="{{ url_for(url,page=data.prev_num) }}">previous page&nbsp;&nbsp;</a>
     </li>
     {% else %}
     <li class="disabled">
-        <a href="#">previous page</a>
+        <a href="#">previous page&nbsp;&nbsp;</a>
     </li>
     {% endif %}
     
     {% for v in data.iter_pages() %}
         {% if v == data.page %}
         <li class="active">
-            <a href="#">{{ v }}</a>
+            <a href="#">{{ v }}&nbsp;&nbsp;</a>
         </li>
         {% else %}
         <li>
-            <a href="{{ url_for(url,page=v) }}">{{ v }}</a>
+            <a href="{{ url_for(url,page=v) }}">{{ v }}&nbsp;&nbsp;</a>
         </li>
         {% endif %}
     {% endfor %}
@@ -29,11 +30,11 @@
     
     {% if data.has_next %}
     <li>
-        <a href="{{ url_for(url,page=data.next_num) }}">next page</a>
+        <a href="{{ url_for(url,page=data.next_num) }}">next page&nbsp;&nbsp;</a>
     </li>
     {% else %}
     <li class="disabled">
-        <a href="#">next page</a>
+        <a href="#">next page&nbsp;&nbsp;</a>
     </li>
     {% endif %}
     <li>
