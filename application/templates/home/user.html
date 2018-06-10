@@ -1,7 +1,4 @@
-{% extends "home/home.html" %}
-
-{% block content %}
-{% include "home/menu.html" %}
+{% extends "home/home.html" %} {% block content %} {% include "home/menu.html" %}
 <div class="col-md-9">
     <div class="panel panel-warning">
         <div class="panel-heading">
@@ -9,18 +6,28 @@
                 <span class="glyphicon glyphicon-map-marker"></span>&nbsp;User center</h3>
         </div>
         <div class="panel-body">
-            <form role="form">
+            {% for msg in get_flashed_messages(category_filter=["err"]) %}
+            <p style="color:red;">{{ msg }}</p>
+            {% endfor %} {% for msg in get_flashed_messages(category_filter=["ok"]) %}
+            <p style="color:green;">{{ msg }}</p>
+            {% endfor %}
+            <form role="form" method="post">
                 <fieldset>
                     <div class="form-group">
                         <label for="input_name">
-                            <span class="glyphicon glyphicon-user"></span>&nbsp;Username</label>
-                        <input id="input_name" class="form-control" placeholder="Username" name="name" type="text" autofocus value="jinlong">
+                            <span class="glyphicon glyphicon-user"></span>&nbsp;{{ form.name.label }}
+                        </label>
+                        {{ form.name }}
                     </div>
-                    <div class="col-md-12" id="error_name"></div>
-                    
-                    
-                    <a href="user.html" class="btn btn-success">
-                        <span class="glyphicon glyphicon-saved"></span>&nbsp;Save modification</a>
+                    {% for err in form.name.errors %}
+                        <div class="col-md-12">
+                            <font style="color:red">{{ err }}</font>
+                        </div>
+                    {% endfor %}
+                    {{ form.csrf_token }} {{ form.submit }}
+
+
+
                 </fieldset>
             </form>
         </div>
@@ -28,4 +35,3 @@
 </div>
 
 {% endblock %}
-
