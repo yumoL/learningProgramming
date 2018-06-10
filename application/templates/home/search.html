@@ -1,55 +1,28 @@
-{% extends "home/home.html" %} {% block content %}
+{% extends "home/home.html" %}
+{% import "ui/admin_page.html" as pg %}
+{% block content %}
+
 <div class="row">
     <div class="col-md-12">
-        <ol class="breadcrumb" style="margin-top:6px;">
-            <li>There x movies about xxx</li>
+        <ol style="margin-top:6px;">
+            <li>There are {{ movie_count }} movies about {{ key }}</li>
         </ol>
     </div>
     <div class="col-md-12">
-        {% for v in range(1,11) %}
+        {% for v in page_data.items %}
         <div class="media">
-            <div class="media-left">
-                <a href="{{ url_for('home.play') }}">
-                    <img class="media-object" src="holder.js/131x83" alt="X-men">
-                </a>
-            </div>
+            
             <div class="media-body">
-                <h4 class="media-heading">X-men
-                    <a href="{{ url_for('home.play') }}" class="label label-primary pull-right">
+                <h4 class="media-heading">{{ v.title }}
+                    <a href="{{ url_for('home.play',id=v.id) }}" class="label label-primary pull-right">
                         <span class="glyphicon glyphicon-play"></span>Play</a>
                 </h4>
-                Something about young X-professor
+                
             </div>
         </div>
         {% endfor %}
         <div class="col-md-12 text-center">
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="First">
-                            <span aria-hidden="true">First page</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">Previous page</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">1&nbsp;/&nbsp;10</a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">Next page</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="Last">
-                            <span aria-hidden="true">Last page</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                {{ pg.page(page_data,'home.search') }}
         </div>
     </div>
     {% endblock %}
