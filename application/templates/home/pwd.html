@@ -8,22 +8,34 @@
                 <span class="glyphicon glyphicon-map-marker"></span>&nbsp;User center</h3>
         </div>
         <div class="panel-body">
-            <form role="form">
+                {% for msg in get_flashed_messages(category_filter=["err"]) %}
+                <p style="color:red;">{{ msg }}</p>
+                {% endfor %} {% for msg in get_flashed_messages(category_filter=["ok"]) %}
+                <p style="color:green;">{{ msg }}</p>
+                {% endfor %}
+            <form role="form" method="post">
                 <fieldset>
                     <div class="form-group">
                         <label for="input_oldpwd">
-                            <span class="glyphicon glyphicon-lock"></span>&nbsp;Password</label>
-                        <input id="input_oldpwd" class="form-control" placeholder="Password" name="oldpwd" type="password" autofocus>
+                            <span class="glyphicon glyphicon-lock"></span>&nbsp;{{ form.old_pwd.label }}</label>
+                            {{ form.old_pwd }}
                     </div>
-                    <div class="col-md-12" id="error_oldpwd"></div>
+                    {% for err in form.old_pwd.errors %}
+                        <div class="col-md-12">
+                            <font style="color:red">{{ err }}</font>
+                        </div>
+                    {% endfor %}
                     <div class="form-group">
                         <label for="input_newpwd">
-                            <span class="glyphicon glyphicon-lock"></span>&nbsp;New password</label>
-                        <input id="input_newpwd" class="form-control" placeholder="New password" name="newpwd" type="password" autofocus>
-                    </div>
-                    <div class="col-md-12" id="error_newpwd"></div>
-                    <a href="login.html" class="btn btn-success">
-                        <span class="glyphicon glyphicon-edit"></span>&nbsp;Save new password</a>
+                            <span class="glyphicon glyphicon-lock"></span>&nbsp;{{ form.new_pwd.label }}</label>
+                            {{ form.new_pwd }}
+                            {% for err in form.new_pwd.errors %}
+                            <div class="col-md-12">
+                                <font style="color:red">{{ err }}</font>
+                            </div>
+                        {% endfor %}
+                    {{ form.csrf_token }}
+                    {{ form.submit }}
                 </fieldset>
             </form>
         </div>
