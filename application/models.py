@@ -3,13 +3,13 @@ from application import db
 
 
 class User(db.Model):
-    __tablename__ = "user"
+    __tablename__ = "account"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True)
     pwd = db.Column(db.String(100))
     addtime = db.Column(db.DateTime, nullable=False)
-    comments = db.relationship('Comment', backref='user')
-    moviecols = db.relationship('Moviecol', backref='user')
+    comments = db.relationship('Comment', backref='account')
+    moviecols = db.relationship('Moviecol', backref='account')
 
     def __repr__(self):
         return "<User %r>" % self.name
@@ -56,7 +56,7 @@ class Comment(db.Model):
     content = db.Column(db.Text)
     addtime = db.Column(db.DateTime, nullable=False)
     movie_id = db.Column(db.Integer, db.ForeignKey('movie.id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('account.id'))
 
     def __repr__(self):
         return "<Comment %r>" % self.id
@@ -67,7 +67,7 @@ class Moviecol(db.Model):
     __tablename__ = "moviecol"
     id = db.Column(db.Integer, primary_key=True)
     movie_id = db.Column(db.Integer, db.ForeignKey('movie.id'))  
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id')) 
+    user_id = db.Column(db.Integer, db.ForeignKey('account.id')) 
     addtime = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):

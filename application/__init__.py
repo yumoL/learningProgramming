@@ -9,6 +9,7 @@ if os.environ.get("HEROKU"):
 else:
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///movie.db"
     app.config["SQLALCHEMY_ECHO"] = True
+    app.config["TRACK_MODIFICATIONS"] = True
 
 db = SQLAlchemy(app)
 
