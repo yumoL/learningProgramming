@@ -89,44 +89,4 @@
         </div>
     </div>
 </section>
-{% endblock %} {% block js %}
-<script src="{{ url_for('static', filename='jwplayer/jwplayer.js') }}"></script>
-<script type="text/javascript">
-    jwplayer.key = "P9VTqT/X6TSP4gi/hy1wy23BivBhjdzVjMeOaQ==";
-
-</script>
-<script type="text/javascript">
-    jwplayer("moviecontainer").setup({
-        flashplayer: "{{ url_for('static', filename='jwplayer/jwplayer.flash.swf') }}",
-        playlist: [{
-            file: "{{ url_for('static', filename='video/videoplayback.mp4') }}",
-            
-        }],
-        modes: [{
-            type: "html5"
-        }, {
-            type: "flash",
-            src: "{{ url_for('static', filename='jwplayer/jwplayer.flash.swf') }}"
-        }, {
-            type: "download"
-        }],
-        skin: {
-            name: "vapor"
-        },
-        "playlist.position": "left",
-        "playlist.size": 200,
-        height: 250,
-        width: 387,
-    });
-
-</script>
-<script>
-    $(document).ready(function () {
-        $('#input_release_time').datepicker({
-            autoclose: true,
-            format: 'yyyy-mm-dd',
-            
-        });
-    });
-
-</script> {% endblock %}
+{% endblock %} 
