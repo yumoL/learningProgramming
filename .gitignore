@@ -1,5 +1,6 @@
 venv
 __pycache__
 .vscode/
-admin/__pycache
-home/__pycache
+application/admin/__pycache__
+application/home/__pycache__
+application/static/uploads
