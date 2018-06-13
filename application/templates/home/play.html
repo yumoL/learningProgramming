@@ -77,9 +77,9 @@
 
                 </table>
 
-                <video width="320" height="240" controls>
+                <video width="320" height="240" controls enctype="video/webm">
 
-                    <source src="{{ url_for('static', filename='uploads/'+movie.url) }}" type="video/mp4"> Your browser does not support the audio element.
+                    <source src="{{ url_for('static', filename='uploads/'+movie.url) }}" type="video/webm"> Your browser does not support the audio element.
                 </video> 
             </div>
         </div>
