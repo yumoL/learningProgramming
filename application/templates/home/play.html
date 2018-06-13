@@ -82,6 +82,7 @@
                 <script src="http://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
                 <video id="my-video" class="video-js" controls preload="auto" width="640" height="250" datasetup="{}">
                     <source src="{{ url_for('static', filename='uploads/'+movie.url) }}" type='video/mp4'>
+                    <source src="{{ url_for('static', filename='uploads/'+movie.url) }}" type='video/webm'>
 
                     <p class="vjs-no-js">
                         To view this video please enable JavaScript, and consider upgrading to a web browser that
