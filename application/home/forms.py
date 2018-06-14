@@ -130,4 +130,25 @@ class PwdForm(FlaskForm):
             "class": "btn btn-success",
         }
     )
-    
+
+class CommentForm(FlaskForm):
+    content=TextAreaField(
+        label="Content",
+        validators=[
+            DataRequired("Please enter your commit")
+        ],
+        description="Some comment here...",
+        render_kw={
+            "class":"btn btn-success",
+            "id": "input_content",
+            "rows":"11",
+            "cols":"70"
+        }
+    )
+    submit=SubmitField(
+        'Submit comment',
+        render_kw={
+            "class":"btn btn-success",
+            "id":"btn-sub"
+        }
+    )

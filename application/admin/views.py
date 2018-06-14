@@ -19,9 +19,7 @@ def tpl_extra():
     )
     return data
 
-# no login->nothing
-
-
+# autorisointi
 def admin_login_req(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -29,6 +27,8 @@ def admin_login_req(f):
             return redirect(url_for("admin.login", next=request.url))
         return f(*args, **kwargs)
     return decorated_function
+
+
 
 # change filename
 
