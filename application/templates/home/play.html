@@ -1,16 +1,4 @@
-{% extends "home/home.html" %} {% block css %}
-<!--playing page-->
-<script type="text/javascript" charset="UTF-8" src="{{url_for('static',filename='ue/ueditor.config.js')}}"></script>
-<script type="text/javascript" charset="UTF-8" src="{{url_for('static',filename='ue/ueditor.all.min.js')}}"></script>
-<script type="text/javascript" charset="UTF-8" src="{{url_for('static',filename='ue/lang/en/en.js')}}"></script>
-
-<script>
-    SyntaxHighlighter.all();
-</script>
-<!--playing page-->
-
-
-{% endblock %} {% block content %}
+{% extends "home/home.html" %} {% import "ui/comment_page.html" as pg %} {% block content %}
 <div class="row">
     <div class="col-md-8">
         <div id="moviecontainer"></div>
@@ -64,7 +52,7 @@
                         <td style="color:#ccc;font-weight:bold;font-style:italic;">
                             <span class="glyphicon glyphicon-comment"></span>&nbsp;Comment number
                         </td>
-                        <td>{{ movie.commentnum}}</td>
+                        <td>{{ movie.commentnum }}</td>
                     </tr>
                     <tr>
                         <td style="color:#ccc;font-weight:bold;font-style:italic;">
@@ -76,11 +64,38 @@
                     </tr>
 
                 </table>
+                <script src="{{ url_for('static',filename='jwplayer/jwplayer.js') }}"></script>
 
-                <video width="320" height="240" controls>
+<script type="text/javascript">
+	jwplayer.key = "P9VTqT/X6TSP4gi/hy1wy23BivBhjdzVjMeOaQ==";
 
-                    <source src="{{ url_for('static', filename='uploads/'+movie.url) }}" type="video/mp4"> Your browser does not support the audio element.
-                </video> 
+</script>
+<script type="text/javascript">
+	jwplayer("moviecontainer").setup({
+		flashplayer: "{{ url_for('static',filename='jwplayer/jwplayer.flash.swf') }}",
+		playlist: [{
+			file: "{{ url_for('static',filename='uploads/'+movie.url) }}",
+			title: "{{ movie.title }}"
+		}],
+		modes: [{
+			type: "html5"
+		}, {
+			type: "flash",
+			src: "{{ url_for('static',filename='jwplayer/jwplayer.flash.swf') }}"
+		}, {
+			type: "download"
+		}],
+		skin: {
+			name: "vapor"
+		},
+		"playlist.position": "left",
+		"playlist.size": 400,
+		height: 500,
+		width: 774,
+	});
+
+</script>
+                
             </div>
         </div>
     </div>
@@ -92,107 +107,66 @@
                     <span class="glyphicon glyphicon-comment"></span>&nbsp;Comments</h3>
             </div>
             <div class="panel-body">
+                {% if "user" not in session %}
                 <div class="alert alert-danger alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert">
-                        <span aria-hidden="true">×</span>
-                        <span class="sr-only">Close</span>
-                    </button>
+                    
                     <strong>Please
                         <a href="{{ url_for('home.login') }}" target="_blank" class="text-info">login</a>，to comment！</strong>
                 </div>
-                <ol class="breadcrumb" style="margin-top:6px;">
-                    <li>All comments(5)</li>
-                </ol>
-                <form role="form" style="margin-bottom:6px;">
+                {% endif %}
+                
+                {% if "user" in session %} {% for msg in get_flashed_messages(category_filter=["err"]) %}
+                <p style="color:red;">{{ msg }}</p>
+                {% endfor %} {% for msg in get_flashed_messages(category_filter=["ok"]) %}
+                <p style="color:green;">{{ msg }}</p>
+                {% endfor %}
+                <form role="form" style="margin-bottom:6px;" method="post">
                     <div class="form-group">
                         <div>
-                            <label for="input_content">Content</label>
+                            <label for="input_content">{{ form.content.label }}</label>
                             <!-- Main Quill library -->
 
-                            <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-                            <script>tinymce.init({ selector: 'textarea' });</script>
-
-                            <textarea>Your comment here...</textarea>
+                            {{ form.content }}
                         </div>
-                        <div class="col-xs-12" id="error_content"></div>
+                        {% for err in form.content.errors %}
+                        <div class="col-md-12">
+                            <font style="color:red">{{ err }}</font>
+                        </div>
+                        {% endfor %}
                     </div>
-                    <a class="btn btn-success" id="btn-sub">
-                        <span class="glyphicon glyphicon-edit"></span>&nbsp;Publish the comment</a>
-                    &nbsp;
-                    <a class="btn btn-danger" id="btn-col">
-                        <span class="glyphicon glyphicon-heart"></span>&nbsp;Collect the movie</a>
+                    {{ form.csrf_token }} {{ form.submit }}
+                    
                 </form>
+                {% endif %}
                 <ul class="commentList">
-                    <li class="item cl">
-
-                        <div class="comment-main">
-                            <header class="comment-header">
-                                <div class="comment-meta">
-                                    <a class="comment-author" href="{{ url_for('home.user') }}">lym</a>
-                                    commented at
-                                    <time title="2016-12-07 09:12:51" datetime="2016-12-07 09:12:51">2017-03-01 09:12:51</time>
-                                </div>
-                            </header>
-                            <div class="comment-body">
-                                <p>hahaha</p>
-                            </div>
-                        </div>
-                    </li>
-
-
+                    {% for v in page_data.items %}
 
                     <li class="item cl">
                         <div class="comment-main">
                             <header class="comment-header">
                                 <div class="comment-meta">
-                                    <a class="comment-author" href="{{ url_for('home.user') }}">lym</a>
-                                    commented comment-author
-                                    <time title="2016-12-07 09:12:51" datetime="2016-12-07 09:12:51">2017-03-01 09:12:51</time>
+                                    <p class="comment-author">{{ v.account.name }}</p>
+                                    commented:
                                 </div>
                             </header>
                             <div class="comment-body">
-                                <p>Good film</p>
+                                <p>{{ v.content }}</p>
                             </div>
                         </div>
                     </li>
+                    {% endfor %}
                 </ul>
                 <div class="col-md-12 text-center">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="First">
-                                    <span aria-hidden="true">First page</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">Previous page</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">1&nbsp;/&nbsp;10</a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">Next page</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="Last">
-                                    <span aria-hidden="true">Last page</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {{ pg.page(page_data,'home.play',movie.id) }}
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
-
-
-
 <!--playing page-->
+
+{% endblock %}
+{% block js %}
+
 {% endblock %}
