@@ -17,6 +17,8 @@ app.config["SECRET_KEY"] = "123"
 app.config["UP_DIR"] = os.path.join(os.path.abspath(
     os.path.dirname(__file__)), "static/uploads/")
 
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000
+
 
 from application.home import home as home_blueprint
 from application.admin import admin as admin_blueprint
