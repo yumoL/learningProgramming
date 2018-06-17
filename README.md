@@ -26,3 +26,8 @@ käyttäjätunnus:lym  salasana:123
 [Hahmotelma tietokantakaaviosta](https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/tietokankaavio.md)
 
 [User story](https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/userStory.md)
+
+## Yhteenvetokyselyt:
+-Yhteenvetokysely löytyy tiedoston [admin/vies.py](https://github.com/yumoL/moviesComment/blob/master/application/admin/views.py) riviltä 299, joka on sama kuin"select art.title,account.name,comment.content,comment.addtime from art,account,comment where comment.art_id=art.id and comment.user_id=account.id;"
+Tulos näkyy [herokun sivulta]( https://tsoha-python-elokuvaforuumi.herokuapp.com/admin/comment/list/1/)(siis login->comment list)
+
