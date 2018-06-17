@@ -26,7 +26,7 @@
                                 </span>
                             </span>
                             about article
-                            <a>{{ v.art.title }}</a>：{{ v.text }}
+                            <a>{{ v.art.title }}</a>：{{ v.content }}
                             <br>
                             <a href="{{ url_for('admin.comment_del',id=v.id) }}" class="label label-danger pull-right">Delete</a>
                         </div>
