@@ -79,7 +79,7 @@ class ArtForm(FlaskForm):
             DataRequired("Please select a tag, or just go to add a new tag")
         ],
         coerce=int,
-        choices=[(v.id, v.name) for v in Tag.query.all()],
+        
         description="Tag",
         render_kw={
             "class": "form-control",
@@ -103,6 +103,9 @@ class ArtForm(FlaskForm):
             "class": "btn btn-primary",
         }
     )
+    def __init__(self,*args,**kwargs):
+        super(ArtForm,self).__init__(*args,*kwargs)
+        self.tag_id.choices=[(v.id, v.name) for v in Tag.query.all()]
 
 class PwdForm(FlaskForm):
     old_pwd=PasswordField(
