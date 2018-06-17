@@ -1,6 +1,8 @@
 {% extends "admin/layout.html" %} {% block content %}
 <form method="POST">
-   
+        {% for msg in get_flashed_messages(category_filter=["err"]) %}
+        <p class="tag_add-box-msg" style="color:red">{{ msg }}</p>
+        {% endfor %}
     <div class="form-group">
         <label>Username</label>
         {{ form.account }} {% for v in form.account.errors %}

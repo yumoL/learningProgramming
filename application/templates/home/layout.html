@@ -7,21 +7,15 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
-    <title>Enjoy Movies</title>
+    <title>Learning English</title>
 
     <link rel="shortcut icon" href="{{ url_for('static',filename='base/image/logo.jpeg') }}">
-    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='base/css/bootstrap.min.css') }}"> -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='base/css/bootstrap-movie.css') }}">
-    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='base/css/animate.css') }}"> -->
-    <!-- <style>
-        .navbar-brand>img {
-            display: inline;
-        }
-        .media{
-            padding:3px;
-            border:1px solid #ccc
-        }
-    </style> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename='base/css/bootstrap-art.css') }}">
+    
 
 </head>
 
@@ -37,15 +31,15 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="{{ url_for('home.index',page=1) }}" class="navbar-brand" style="width:250px;">
-                    <img src="{{ url_for('static',filename='base/image/logo.jpeg') }}" style="height:30px;">&nbsp;Enjoy Movies
+                    <img src="{{ url_for('static',filename='base/image/logo.jpeg') }}" style="height:30px;">&nbsp;Learning English
                 </a>
             </div>
 
             <div class="navbar-collapse collapse">
                 <form class="navbar-form navbar-left" role="search" style="margin-top:18px;">
                     <div class="form-group input-group">
-                        <input type="text" class="form-control" placeholder="Search movie" id="key_movie">
-                        <span class="input-group-btn">
+                        <input type="text" class="form-control" placeholder="Search article" id="key_art">
+                        <span class="input-group-btn"></span>
                             <a id="do_search">Search</a>
                         </span>
                     </div>
@@ -53,7 +47,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a class="curlink" href="{{ url_for('home.index',page=1) }}">
-                            <span class="glyphicon glyphicon-film"></span>&nbsp;Movie</a>
+                            <span class="glyphicon glyphicon-film"></span>&nbsp;Articles</a>
                     </li>
                     <li>
                         <a class="curlink" href="{{ url_for('home.login') }}">
@@ -71,6 +65,7 @@
                         <a class="curlink" href="{{ url_for('home.user') }}">
                             <span class="glyphicon glyphicon-user"></span>&nbsp;User center</a>
                     </li>
+                   
                 </ul>
             </div>
 
@@ -101,7 +96,7 @@
 
     <script>
         $("#do_search").click(function () {
-            var key = $("#key_movie").val();
+            var key = $("#key_art").val();
             location.href = "{{ url_for('home.search',page=1) }}?key=" + key;
          });
         

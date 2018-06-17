@@ -22,18 +22,18 @@
     <li class="treeview">
         <a>
 
-            <span>Movie</span>
+            <span>Article</span>
 
         </a>
         <ul class="treeview-menu">
             <li>
-                <a href="{{ url_for('admin.movie_add') }}">
-                    <i class="fa fa-circle-o"></i> Add movies
+                <a href="{{ url_for('admin.art_add') }}">
+                    <i class="fa fa-circle-o"></i> Add article
                 </a>
             </li>
             <li>
-                <a href="{{ url_for('admin.movie_list',page=1) }}">
-                    <i class="fa fa-circle-o"></i> Movie list
+                <a href="{{ url_for('admin.art_list',page=1) }}">
+                    <i class="fa fa-circle-o"></i> Article list
                 </a>
             </li>
         </ul>
@@ -67,7 +67,7 @@
             </li>
         </ul>
     </li>
-    
+
     <li class="treeview">
         <a>
             <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -83,5 +83,9 @@
 
         </ul>
     </li>
+
+    
+
+    
 
 </ul>

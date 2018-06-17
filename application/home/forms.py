@@ -139,10 +139,10 @@ class CommentForm(FlaskForm):
         ],
         description="Some comment here...",
         render_kw={
-            "class":"btn btn-success",
+            "class":"form-control",
             "id": "input_content",
-            "rows":"11",
-            "cols":"70"
+            "rows":"5",
+            "cols":"50"
         }
     )
     submit=SubmitField(

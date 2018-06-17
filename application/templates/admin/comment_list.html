@@ -8,17 +8,7 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Comment list</h3>
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="box-body box-comments">
                         {% for msg in get_flashed_messages(category_filter=["ok"]) %}
@@ -35,8 +25,8 @@
                                     &nbsp; {{ v.addtime }}
                                 </span>
                             </span>
-                            about movie
-                            <a>{{ v.movie.title }}</a>：{{ v.content }}
+                            about article
+                            <a>{{ v.art.title }}</a>：{{ v.text }}
                             <br>
                             <a href="{{ url_for('admin.comment_del',id=v.id) }}" class="label label-danger pull-right">Delete</a>
                         </div>

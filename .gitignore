@@ -3,4 +3,4 @@ __pycache__
 .vscode/
 application/admin/__pycache__
 application/home/__pycache__
-application/static/uploads
+

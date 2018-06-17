@@ -1,25 +1,23 @@
 {% extends "home/home.html" %}
-{% import "ui/admin_page.html" as pg %}
+{% import "ui/s_page.html" as pg %}
 {% block content %}
 
 <div class="row">
     <div class="col-md-12">
-        <ol style="margin-top:6px;">
-            <li>There are {{ movie_count }} movies about {{ key }}</li>
+        <ol style="margin-top:90px;">
+            <li>There are {{ art_count }} articles about {{ key }}</li>
         </ol>
     </div>
     <div class="col-md-12">
         {% for v in page_data.items %}
-        <div class="media">
-            
-            <div class="media-body">
-                <h4 class="media-heading">{{ v.title }}
-                    <a href="{{ url_for('home.play',id=v.id,page=1) }}" class="label label-primary pull-right">
-                        <span class="glyphicon glyphicon-play"></span>Play</a>
+       
+                <h4 class="text-left">{{ v.title }}
+                    <a href="{{ url_for('home.read',id=v.id,page=1) }}" class="label label-primary pull-center">
+                        Read</a>
                 </h4>
                 
-            </div>
-        </div>
+            
+        
         {% endfor %}
         <div class="col-md-12 text-center">
                 {{ pg.page(page_data,'home.search') }}

@@ -60,11 +60,11 @@ class TagForm(FlaskForm):
     )
 
 
-class MovieForm(FlaskForm):
+class ArtForm(FlaskForm):
     title = StringField(
         label="Title",
         validators=[
-            DataRequired("Please enter the name of te movie")
+            DataRequired("Please enter your title ")
         ],
         description="Title",
         render_kw={
@@ -72,28 +72,11 @@ class MovieForm(FlaskForm):
             "placeholder": "title"
         }
     )
-    url = FileField(
-        label="File",
-        validators=[
-            DataRequired("Please upload your file")
-        ],
-        description="File"
-    )
-    info = TextAreaField(
-        label="Info",
-        validators=[
-            DataRequired("Please enter the info of the movie")
-        ],
-        description="info",
-        render_kw={
-            "class": "form-control",
-            "rows": 10
-        }
-    )
+    
     tag_id = SelectField(
         label="Tag",
         validators=[
-            DataRequired("Please select a tag")
+            DataRequired("Please select a tag, or just go to add a new tag")
         ],
         coerce=int,
         choices=[(v.id, v.name) for v in Tag.query.all()],
@@ -102,42 +85,20 @@ class MovieForm(FlaskForm):
             "class": "form-control",
         }
     )
-    area = StringField(
-        label="Area",
+    text = TextAreaField(
+        label="Content",
         validators=[
-            DataRequired("Please enter the Area")
+            DataRequired("Content cannnot be empty")
         ],
-        description="Area",
+        description="Content",
         render_kw={
-            "class": "form-control",
-            "placeholder": "Area"
+            "Style": "height:300px; width:500px;",
+            "id": "content"
         }
-    )
-    length = StringField(
-        label="Length",
-        validators=[
-            DataRequired("Please enter the length")
-        ],
-        description="Length",
-        render_kw={
-            "class": "form-control",
-            "placeholder": "Length"
-        }
-    )
-    release_time = StringField(
-        label="Release time",
-        validators=[
-            DataRequired("Please enter the release time")
-        ],
-        description="Release time",
-        render_kw={
-            "class": "form-control",
-            "placeholder": "yyyy-mm-dd",
-            "id": "input_release_time"
-        }
+
     )
     submit = SubmitField(
-        'Edit',
+        'Submit',
         render_kw={
             "class": "btn btn-primary",
         }
@@ -172,3 +133,5 @@ class PwdForm(FlaskForm):
             "class": "btn btn-primary",
         }
     )
+
+
