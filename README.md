@@ -1,17 +1,17 @@
-# Enjoy Movies
+# Learning Programming
 
-Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään elokuvapalvelu, jossa käyttäjä pääsee katsomaan tietokantaan tallennetuja elokuvia ja komentoimaan elokuvia. Lisäksi käyttäjä voi halutessaan tykätä elokuvia.
+Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään artikkelipalvelu, jossa käyttäjä pääsee lukemaan tietokantaan tallennetuja artikkeleita ohjelmoinnista ja komentoimaan artikkeleita- Lisäksi käyttäjä voi halutessaan tykätä artikkeleita
 
-Sovelluksen ylläpitäjällä on oma liittymä, jonka kautta hän pystyy ylläpitämään käyttäjien jäsentietoja, lisäämään ja poistamaan elokuvia sekä määrittelemään aiheita, joiden perusteella elokuvat luokitellaan.
+Sovelluksen ylläpitäjällä on oma liittymä, jonka kautta hän pystyy ylläpitämään käyttäjien jäsentietoja, lisäämään ja poistamaan artikkeleita sekä määrittelemään aiheita, joiden perusteella elokuvat luokitellaan.
 
 Toimintoja: 
 - Sisään ja ulos kirjautuminen
 - Uuden käyttäjän rekisteri
 - Kommentin lisääminen
-- Elokuvien lisääminen ja poistaminen
-- Elokuvien tykkääminen
-- Elokuvien luokitus aiheen ja esiintymisajan perusteella
-- Elokuvien järjestäytyminen katsojien määrän ja komenttien määrän perusteella
+- Artikkeleiden lisääminen ja poistaminen
+- Artikeleiden tykkääminen
+- Artikkeleiden luokitus aiheen perusteella
+- Elokuvien järjestäytyminen lukejien ja komenttien määrän perusteella
 
 
 Heroku:
