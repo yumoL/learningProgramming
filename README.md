@@ -1,6 +1,6 @@
 # Learning Programming
 
-Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään artikkelipalvelu, jossa käyttäjä pääsee lukemaan tietokantaan tallennetuja artikkeleita ohjelmoinnista ja komentoimaan artikkeleita- Lisäksi käyttäjä voi halutessaan tykätä artikkeleita
+Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään artikkelipalvelu, jossa käyttäjä pääsee lukemaan tietokantaan tallennetuja artikkeleita ohjelmoinnista ja komentoimaan artikkeleita. Lisäksi käyttäjä voi tykätä artikkeleita.
 
 Sovelluksen ylläpitäjällä on oma liittymä, jonka kautta hän pystyy ylläpitämään käyttäjien jäsentietoja, lisäämään ja poistamaan artikkeleita sekä määrittelemään aiheita, joiden perusteella elokuvat luokitellaan.
 
