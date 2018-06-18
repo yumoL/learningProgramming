@@ -18,7 +18,7 @@ Heroku:
 
 [käyttäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/1/)
 käyttäjätunnus:aleksi salasana:123
-               jussi           321
+käyttäjätunnus:jussi  salasana:321
 
 [ylläpitäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/admin/)
 käyttäjätunnus:lym  salasana:123
