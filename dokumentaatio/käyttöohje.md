@@ -51,7 +51,7 @@ Sisään kirjautunut käyttäjä pääsee näkemään kaikki omat komentit ja ty
 ## Ylläpitäjä
 
 ### Sisään kirjautuminen
-<img src="">
+<img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/login.png">
 Ylläpitäjä pääsee ylläpitokentälle syöttämällä syöttökentille oikein käyttäjätunnuksen ja salasanan (ylläpitäjän käyttäjätunnus ja salasana on syötetty suoraan tietokantaan komentorivillä).
 
 
