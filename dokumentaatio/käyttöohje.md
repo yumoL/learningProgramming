@@ -32,3 +32,6 @@ Sisään kirjautunut käyttäjä pääsee näkemään kaikki omat komentit ja ty
 
 ## Ylläpitäjä
 
+### Sisään kirjautuminen
+Ylläpitäjä pääsee ylläpitokentälle syöttämällä syöttökentille oikein käyttäjätunnuksen ja salasanan.
+
