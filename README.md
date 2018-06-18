@@ -23,6 +23,8 @@ käyttäjätunnus:jussi  salasana:321
 [ylläpitäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/admin/)
 käyttäjätunnus:lym  salasana:123
 
+## Dokumentaatio
+
 [Hahmotelma tietokantakaaviosta](https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/tietokankaavio.md)
 
 [User story](https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/userStory.md)
