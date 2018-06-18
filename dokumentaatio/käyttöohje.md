@@ -5,6 +5,10 @@
 ### Etusivu
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/k%C3%A4ytt%C3%A4j%C3%A4nEtisivu.png">
 
+### Artikkelin lajittelu ja järjestäminen
+Käyttäjä voi lajitella artikkeleita klikkaamalla rivillä _Article tag_ olevia painikkeita, jolloin etusivulla näkyy vain tiettyyn aiheeseen liittyvät artikkelit. Lisäksi käyttäjä voi järjestää artikkeleita lukijien tai komenttien määrän perusteella. Esimerkiksi käyttäjän klikatessa rivillä _Read_ painetta _Most first_ artikkeli, jolla on eniten lukijia, tulee ensimmäiseksi. 
+
+
 ### Sisään kirjautuminen
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/sis%C3%A4%C3%A4nkirjautuminen.png">
 Käyttäjä, jolla on käyttäjätunnus,voi kirjautua sisään sovellukseen klikkaamalla painiketta _Login_ ja syöttämällä syöttökentille oikein käyttäjätunnuksen ja salasanan.
@@ -17,15 +21,12 @@ Käyttäjä, jolla ei vielä ole käyttäjätunnusta, voi mennä rekisteröimä�
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/search.png">
 Käyttäjä voi etsiä tiettyä artikkelia otsikon avainsanan perusteella kirjoittamalla etusivun ylhäällä olevalle etsimiskentälle avainsanan ja painaamalla painiketta _Search_.
 
-### Artikkelin lajittelu ja järjestäminen
-Käyttäjä voi lajitella artikkeleita klikkaamalla rivillä _Article tag_ olevia painikkeita, jolloin etusivulla näkyy vain tiettyyn aiheeseen liittyvät artikkelit. Lisäksi käyttäjä voi järjestää artikkeleita lukijien tai komenttien määrän perusteella. Esimerkiksi käyttäjän klikatessa rivillä _Read_ painetta _Most first_ artikkeli, jolla on eniten lukijia, tulee ensimmäiseksi. 
 
 ### Artikkelin lukeminen
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/lukemissivu.png">
 Kaikki käyttäjät,jotka ovat kirjautuneet sisään ja jotka eivät, pääsevät lukemaan artikkelia klikkaamalla artikkelin otsikon alhaalla olevaa painiketta _Read_, jonka jälkeen käyttäjät pääsevät artikkelin lukemissivulle. Tiedot artikkelista(otsikko, aihe, julkaisuaika, lukijien ja komenttien määrä) näkyvät lukemiskentän oikealla puolella.
 
 ### Komentin julkaiseminen ja artikkelin tykkääminen
-<img src="">
 Sisään kirjautunut käyttäjä voi komentoida artikkelia kirjoittamalla komenttia artikkelin lukemiskentän alhaalla olevalle komenttikentälle ja klikkaamalla painiketta _Submit comment_. Käyttäjän, joka ei ole sisään kirjautuneena, pitää kirjautua sisään julkaistaakseen komentinsa. 
 
 Sama kuin komentin julkaisemisessa, vain sisään kirjautunut käyttäjä voi tykätä artikkelia klikkaamalla komenttikentän aihaalla olevaa painiketta _Like this article_. 
