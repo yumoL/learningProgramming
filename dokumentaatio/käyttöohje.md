@@ -3,7 +3,7 @@
 ## Käyttäjä
 
 ### Etusivu
-<src img="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/k%C3%A4ytt%C3%A4j%C3%A4nEtisivu.png">
+<img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/k%C3%A4ytt%C3%A4j%C3%A4nEtisivu.png">
 
 ### Sisään kirjautuminen
 Käyttäjä, jolla on käyttäjätunnus,voi kirjautua sisään sovellukseen klikkaamalla painiketta _Login_ ja syöttämällä syöttökentille oikein käyttäjätunnuksen ja salasanan.
