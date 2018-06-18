@@ -33,5 +33,22 @@ Sisään kirjautunut käyttäjä pääsee näkemään kaikki omat komentit ja ty
 ## Ylläpitäjä
 
 ### Sisään kirjautuminen
-Ylläpitäjä pääsee ylläpitokentälle syöttämällä syöttökentille oikein käyttäjätunnuksen ja salasanan.
+Ylläpitäjä pääsee ylläpitokentälle syöttämällä syöttökentille oikein käyttäjätunnuksen ja salasanan (ylläpitäjän käyttäjätunnus ja salasana on syötetty suoraan tietokantaan komentorivillä).
+
+### Aiheen muokkaaminen ja listaaminen
+Ylläpitäjä voi lisätä uusia aiheita klikkaamalla _Add tags_ ja nähdä kaikki aiheet klikkaamalla _Tag list_.
+Aiheen listalla ylläpitäjä voi muokata tiettyä aihetta klikkaamalla painiketta _edit_ ja poistaa aiheen klikkaamalla painiketta _delete_. 
+
+### Artikkelin muokkaaminen ja listaaminen
+Ylläpitäjä voi lisätä uusia artikkeleita klikkaamalla _Add articles_ ja nähdä kaikki aiheet klikkaamalla _Article list_.
+Aiheen listalla ylläpitäjä voi muokata  tiettyä artikkelia klikkaamalla painiketta _edit_ ja poistaa artikkelin klikkaamalla painiketta _delete_. 
+
+### Käyttäjän listaaminen
+Ylläpitäjä voi tarkistaa kaikkien sovelluksen käyttäjien tiedot klikkaamalla _User list_.
+
+### Komentin listaaminen
+Ylläpitäjä näkee kaikki kommentit klikkaamalla _Comment list_.
+
+### Toimenpiteen listaaminen
+Ylläpitäjä näkee sekä oman että toisen ylläpitäjän toimenpiteet klikkaamalla _Operation log_.
 
