@@ -5,7 +5,7 @@
 ### Etusivu
 
 ### Sisään kirjautuminen
-Käyttäjä, jolla on käyttäjätunnus,voi kirjautua sisään sovellukseen klikkaamalla painiketta _Login_ ja syöttämällä syöttökentille oikein käyttäjätunnus ja salasana.
+Käyttäjä, jolla on käyttäjätunnus,voi kirjautua sisään sovellukseen klikkaamalla painiketta _Login_ ja syöttämällä syöttökentille oikein käyttäjätunnuksen ja salasanan.
 
 ### Uuden käyttäjän luominen
 Käyttäjä, jolla ei vielä ole käyttäjätunnusta, voi mennä rekisteröimään klikkaamalla painiketta _Rigister_ ja syöttämällä syöttökentille uniikin käyttäjätunnuksen ja salasanan. Tämän jälkeen käyttäjä voi kirjautua sisään sovellukseen edellisellä mainitulla kirjautumissivulla.
