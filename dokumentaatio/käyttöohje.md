@@ -10,6 +10,9 @@ Käyttäjä, jolla on käyttäjätunnus,voi kirjautua sisään sovellukseen klik
 ### Uuden käyttäjän luominen
 Käyttäjä, jolla ei vielä ole käyttäjätunnusta, voi mennä rekisteröimään klikkaamalla painiketta _Rigister_ ja syöttämällä syöttökentille uniikin käyttäjätunnuksen ja salasanan. Tämän jälkeen käyttäjä voi kirjautua sisään sovellukseen edellisellä mainitulla kirjautumissivulla.
 
+### Artikkelin etsinen 
+Käyttäjä voi etsiä tiettyä artikkelia otsikon avainsanan perusteella kirjoittamalla etusivun ylhäällä olevalle etsimiskentälle avainsanan ja painaamalla painiketta _Search_.
+
 ### Artikkelin lajittelu ja järjestäminen
 Käyttäjä voi lajitella artikkeleita klikkaamalla rivillä _Article tag_ olevia painikkeita, jolloin etusivulla näkyy vain tiettyyn aiheeseen liittyvät artikkelit. Lisäksi käyttäjä voi järjestää artikkeleita lukijien tai komenttien määrän perusteella. Esimerkiksi käyttäjän klikatessa rivillä _Read_ painetta _Most first_ artikkeli, jolla on eniten lukijia, tulee ensimmäiseksi. 
 
@@ -26,3 +29,6 @@ Sisään kirjautunut käyttäjä voi muokata omaa käyttjätunnusta klikkaamalla
 
 ### Komenttien ja tykättyjen artikkeleiden listaaminen
 Sisään kirjautunut käyttäjä pääsee näkemään kaikki omat komentit ja tykätyt artukkelit(jos niitä on) klikaamalla ensin painiketta _User center_ ja sitten _Comments history_/_Liked_. Käyttäjä voi lukea tykättyä artikkelia klikkamalla artikkelin otsikon oikealla olevaa painiketta _Read_.
+
+## Ylläpitäjä
+
