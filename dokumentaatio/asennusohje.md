@@ -2,52 +2,59 @@
 # Asennusohje
 
 ## Hakemiston lataaminen
-- Mene projektin [etusivulle](https://github.com/yumoL/learningProgramming) ja klikkaa painiketta Clone or downloads ja sitten painiketta Download Zip.
-- Pura tiedostopakkauksen, jonka jälkeen saadaan hakemisto learningProgramming-master.
+- Mennään projektin [etusivulle](https://github.com/yumoL/learningProgramming) ja klikataan painiketta Clone or downloads ja sitten painiketta Download Zip.
+- Puretaan tiedostopakkauksen, jonka jälkeen saadaan hakemisto learningProgramming-master.
 
 ## Projektin lähettäminen herokuun
-- Mene hakemiston sisälle komennolla
+- Mennään hakemiston sisälle komennolla
 ```
 cd learningProgramming-master
 ```
-- Luo hakemisto sisälle  Python-virtuaaliympäristö komennolla 
+- Luodaan hakemisto sisälle  Python-virtuaaliympäristö komennolla 
 ```
 python3 -m venv venv
 ```
-- Aktivoi python-ympäristön komennolla
+- Aktivoidaan python-ympäristön komennolla
 ```
 source venv/bin/activate
 ```
 
-- Asenna riippuvuudet virtuaaliseen ympäristöön
+- Asennetaan riippuvuudet virtuaaliseen ympäristöön
 ```
 pip install -r requirements.txt
 ```
-- Päivitä Flask uudempaan versioon komennolla
+- Päivitetään Flask uudempaan versioon komennolla
 ```
 pip install --upgrade pip
 ```
-- Kirjaudu sisään Herokuun komennolla, tai jos käyttäjätunnusta ei vielä ole, pitää mennä Herokun [etusivulle](https://id.heroku.com/login) rekisteröimään.
+- Kirjaudutaan sisään Herokuun komennolla, tai jos käyttäjätunnusta ei vielä ole, pitää mennä Herokun [etusivulle](https://id.heroku.com/login) rekisteröimään.
 ```
 heroku login
 ```
-- Luo sovellukselle paikan Herokuun komennolla (osoitteen nimen pitää olla uniikki, oletataan tässä, että osoitteen nimi on artikkelipalvelu)
+- Luodaan sovellukselle paikan Herokuun komennolla (osoitteen nimen pitää olla uniikki, oletataan tässä, että osoitteen nimi on artikkelipalvelu)
 ```
 heroku create artikkelipalvelu
 ```
-- Luo projektikansiolle git-versionhallinta komennolla
+- Luodaan projektikansiolle git-versionhallinta komennolla
 ```
 git init
 ```
 
-- Lisää projektin koodit versiohallintaan komennolla
+- Lisätään projektin koodit versiohallintaan komennolla
 ```
 heroku git:remote -a artikkelipalvelu
 ```
-- Lähetä projektin Herokuun komennoilla
+- Lähetetään projektin Herokuun komennoilla
 ```
 git add .
 git commit -m"initial configuartion"
 git push heroku master
 ```
-
+- Lisätään seuraavaksi sovelluksen käyttöön tieto siitä, että sovellus on Herokussa
+```
+heroku config:set HEROKU=1
+```
+- Lisätään Herokuun tietokanta. 
+```
+heroku addons:add heroku-postgresql:hobby-dev
+```
