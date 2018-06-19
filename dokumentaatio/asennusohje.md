@@ -58,4 +58,5 @@ heroku config:set HEROKU=1
 ```
 heroku addons:add heroku-postgresql:hobby-dev
 ```
-Nyt sovellus on Herokussa ja sen osoite on ### https://"nimi".herokuapp.com/
+Nyt sovellus on Herokussa ja sen osoite on 
+### https://"nimi".herokuapp.com/
