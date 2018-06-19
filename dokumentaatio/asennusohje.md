@@ -31,9 +31,9 @@ pip install --upgrade pip
 ```
 heroku login
 ```
-- Luodaan sovellukselle paikan Herokuun komennolla (osoitteen nimen pitää olla uniikki, oletataan tässä, että osoitteen nimi on artikkelipalvelu)
+- Luodaan sovellukselle paikan Herokuun komennolla (osoitteen nimen pitää olla uniikki)
 ```
-heroku create artikkelipalvelu
+heroku create "nimi"
 ```
 - Luodaan projektikansiolle git-versionhallinta komennolla
 ```
@@ -42,7 +42,7 @@ git init
 
 - Lisätään projektin koodit versiohallintaan komennolla
 ```
-heroku git:remote -a artikkelipalvelu
+heroku git:remote -a "nimi"
 ```
 - Lähetetään projektin Herokuun komennoilla
 ```
@@ -58,3 +58,4 @@ heroku config:set HEROKU=1
 ```
 heroku addons:add heroku-postgresql:hobby-dev
 ```
+Nyt sovellus on Herokussa ja sen osoite on https://"nimi".herokuapp.com/
