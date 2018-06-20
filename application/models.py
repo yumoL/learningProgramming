@@ -82,24 +82,8 @@ class Admin(db.Model):
     name = db.Column(db.String(100), unique=True)
     pwd = db.Column(db.String(100)) 
     oplogs = db.relationship("Oplog", backref='admin')
-    # def __repr__(self):
-    #     return "<Admin %r>" % self.name
-
-    def __init__(self, name, pwd):
-        self.name = name
-        self.pwd = pwd
-  
-    def get_id(self):
-        return self.id
-
-    def is_active(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
-    def is_authenticated(self):
-        return True
+    def __repr__(self):
+        return "<Admin %r>" % self.name
 
 
 class Oplog(db.Model):

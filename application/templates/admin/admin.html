@@ -16,7 +16,7 @@
         <div class="container">
             <a class="navbar-brand">Administration </a>
 
-            <a class="btn btn-outline-danger" href="{{ url_for('admin.logout') }}">{{ current_user.name }} -> Logout</a>
+            <a class="btn btn-outline-danger" href="{{ url_for('admin.logout') }}">{{ session['admin']}} -> Logout</a>
             <a class="btn btn-outline-danger" href="{{ url_for('admin.pwd') }}">Change password</a>
         </div>
     </nav>

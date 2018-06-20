@@ -5,6 +5,7 @@ from application.models import User,Tag,Art,Comment,Artcol
 from werkzeug.security import generate_password_hash
 import datetime
 from application import db
+from functools import wraps 
 from flask_login import login_user,logout_user,login_required,current_user
 
 
