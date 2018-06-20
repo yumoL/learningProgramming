@@ -5,17 +5,7 @@ from application.models import User,Tag,Art,Comment,Artcol
 from werkzeug.security import generate_password_hash
 import datetime
 from application import db
-from functools import wraps 
-
-# autorisointi
-def user_login_req(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if "user" not in session:
-            return redirect(url_for("home.login", next=request.url))
-        return f(*args, **kwargs)
-
-    return decorated_function
+from flask_login import login_user,logout_user,login_required,current_user
 
 
 @home.route("/login/", methods=["GET", "POST"])
@@ -30,17 +20,17 @@ def login():
         if not user.check_pwd(data["pwd"]):
             flash("Incorrect password", "err")
             return redirect(url_for("home.login"))
-        session["user"] = user.name
-        session["user_id"] = user.id
+        # session["user"] = user.name
+        # session["user_id"] = user.id
+        login_user(user)
         return redirect(url_for("home.user"))
     return render_template("home/login.html", form=form)
 
 
 @home.route("/logout/")
-@user_login_req
+@login_required
 def logout():
-    session.pop("user",None)
-    session.pop("user_id",None)
+    logout_user()
     return redirect(url_for("home.login"))
 
 
@@ -52,7 +42,7 @@ def regist():
         user = User(
             name=data["name"],
             pwd=generate_password_hash(data["pwd"]),
-            addtime=datetime.datetime.now()
+            addtime=db.func.current_timestamp()
         )
         db.session().add(user)
         db.session().commit()
@@ -61,10 +51,10 @@ def regist():
 
 # change username
 @home.route("/user/",methods=["GET","POST"])
-@user_login_req
+@login_required
 def user():
     form=UserdetailForm()
-    user=User.query.get(int(session["user_id"]))
+    user=User.query.get(int(current_user.id))
     if user is None:
         return redirect(url_for("home.index",page=1))
     if request.method=="GET":
@@ -85,12 +75,12 @@ def user():
 
 #change password
 @home.route("/pwd/",methods=["GET","POST"])
-@user_login_req
+@login_required
 def pwd():
     form = PwdForm()
     if form.validate_on_submit():
         data = form.data
-        user = User.query.filter_by(name=session["user"]).first()
+        user = User.query.filter_by(name=current_user.name).first()
         if not user.check_pwd(data["old_pwd"]):
             flash("Wrong old password", "err")
             return redirect(url_for('home.pwd'))
@@ -103,12 +93,12 @@ def pwd():
 
 
 @home.route("/comments/<int:page>/")
-@user_login_req
+@login_required
 def comments(page=None):
     if page is None:
         page = 1
     page_data = Comment.query.join(Art).join(User).filter(Art.id == Comment.art_id,
-                                                            User.id == session["user_id"]).order_by(Comment.addtime.desc()).paginate(page=page, per_page=5)
+                                                            User.id == current_user.id).order_by(Comment.addtime.desc()).paginate(page=page, per_page=5)
     return render_template("home/comments.html",page_data=page_data)
 
 
@@ -182,13 +172,13 @@ def read(id=None,page=None):
                                                             User.id == Comment.user_id).order_by(Comment.addtime.desc()).paginate(page=page, per_page=5)
     art.readnum=art.readnum+1
     form=CommentForm()
-    if "user" in session and form.validate_on_submit():
+    if current_user.is_authenticated and form.validate_on_submit():
         data=form.data
         comment=Comment(
             content=data["content"],
             addtime=db.func.current_timestamp(),
             art_id=art.id,
-            user_id=session["user_id"]
+            user_id=current_user.id
         )
         db.session().add(comment)
         db.session().commit()
@@ -204,7 +194,7 @@ def read(id=None,page=None):
     return render_template("home/read.html",art=art,form=form,page_data=page_data)
 
 @home.route("/artcol/add/", methods=["GET"])
-@user_login_req
+@login_required
 def artcol_add():
     uid = request.args.get("uid", "")
     mid = request.args.get("mid", "")
@@ -228,7 +218,7 @@ def artcol_add():
     return json.dumps(data)
 
 @home.route("/artcol/<int:page>/")
-@user_login_req
+@login_required
 def artcol(page=None):
     if page is None:
         page = 1
@@ -238,7 +228,7 @@ def artcol(page=None):
         User
     ).filter(
         Art.id == Artcol.art_id,
-        User.id == session["user_id"]
+        User.id == current_user.id
     ).order_by(
         Artcol.addtime.desc()
     ).paginate(page=page, per_page=10)

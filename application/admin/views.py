@@ -2,36 +2,14 @@ from . import admin
 from flask import render_template, redirect, url_for, flash, session, request
 from application.admin.forms import LoginForm, TagForm, ArtForm, PwdForm
 from application.models import Admin, Tag, Art, User, Comment, Oplog
-from functools import wraps
 from application import db, app
 from sqlalchemy.sql import text
-from datetime import datetime
-import datetime
-import os
-import uuid
+from flask_login import login_user,logout_user,login_required,current_user
 
-# admin's login time
-
-
-@admin.context_processor
-def tpl_extra():
-    data = dict(
-        online_time=datetime.datetime.now().strftime("%m-%d-%Y %H:%M:%S")
-    )
-    return data
-
-
-def admin_login_req(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if "admin" not in session:
-            return redirect(url_for("admin.login", next=request.url))
-        return f(*args, **kwargs)
-    return decorated_function
 
 
 @admin.route("/admin/")
-@admin_login_req
+@login_required
 def index():
     return render_template("admin/index.html")
 
@@ -46,30 +24,28 @@ def login():
         if not admin:
             flash("No such username or password", 'err')
             return redirect(url_for("admin.login"))
-        session["admin"] = data["account"]
-        session["admin_id"] = admin.id
+        login_user(admin)
         return redirect(request.args.get("next") or url_for("admin.index"))
     return render_template("admin/login.html", form=form)
 
 
 @admin.route("/admin/logout/")
-@admin_login_req
+@login_required
 def logout():
-    session.pop("admin", None)
-    session.pop("admin_id", None)
+    logout_user()
     return redirect(url_for("admin.login"))
 
 #change password
 
 
 @admin.route("/admin/pwd/", methods=["GET", "POST"])
-@admin_login_req
+@login_required
 def pwd():
     form = PwdForm()
     if form.validate_on_submit():
         data = form.data
         admin = Admin.query.filter_by(
-            name=session["admin"], pwd=data["old_pwd"]).first()
+            name=current_user.name, pwd=data["old_pwd"]).first()
         if not admin:
             flash("Wrong password", 'err')
             return redirect(url_for("admin.pwd"))
@@ -84,7 +60,7 @@ def pwd():
 
 
 @admin.route("/admin/tag/add/", methods=["GET", "POST"])
-@admin_login_req
+@login_required
 def tag_add():
     form = TagForm()
     if form.validate_on_submit():
@@ -101,7 +77,7 @@ def tag_add():
         db.session().commit()
         flash("Tag is saved successfully", "ok")
         oplog = Oplog(
-            admin_id=session["admin_id"],
+            admin_id=current_user.name,
             reason="added tag %s" % data["name"],
             addtime=db.func.current_timestamp()
         )
@@ -112,7 +88,7 @@ def tag_add():
 
 
 @admin.route("/admin/tag/list/<int:page>/", methods=["GET"])
-@admin_login_req
+@login_required
 def tag_list(page=None):
     if page is None:
         page = 1
@@ -123,7 +99,7 @@ def tag_list(page=None):
 
 
 @admin.route("/admin/tag/edit/<int:id>/", methods=["GET", "POST"])
-@admin_login_req
+@login_required
 def tag_edit(id=None):
     form = TagForm()
     tag = Tag.query.get_or_404(id)
@@ -138,7 +114,7 @@ def tag_edit(id=None):
         db.session().commit()
         flash("Tag is edited successfully", "ok")
         oplog = Oplog(
-            admin_id=session["admin_id"],
+            admin_id=current_user.id,
             reason="edited tag %s" % data["name"],
             addtime=datdb.func.current_timestamp()
         )
@@ -149,7 +125,7 @@ def tag_edit(id=None):
 
 
 @admin.route("/admin/tag/del/<int:id>/", methods=["GET"])
-@admin_login_req
+@login_required
 def tag_del(id=None):
     art_count = Art.query.filter_by(tag_id=id).count()
     if art_count != 0:
@@ -160,7 +136,7 @@ def tag_del(id=None):
         db.session().commit()
         flash("Tag has been deleted successfully", "ok")
         oplog = Oplog(
-            admin_id=session["admin_id"],
+            admin_id=current_user.id,
             reason="deleted tag %s" % tag.name,
             addtime=db.func.current_timestamp()
         )
@@ -170,7 +146,7 @@ def tag_del(id=None):
 
 
 @admin.route("/admin/art/add/", methods=["GET", "POST"])
-@admin_login_req
+@login_required
 def art_add():
     form = ArtForm()
     if form.validate_on_submit():
@@ -188,7 +164,7 @@ def art_add():
        db.session().commit()
        flash("The article has been added successfully", "ok")
        oplog = Oplog(
-            admin_id=session["admin_id"],
+            admin_id=current_user.id,
             reason="added article %s" % data["title"],
             addtime=db.func.current_timestamp()
         )
@@ -199,7 +175,7 @@ def art_add():
 
 
 @admin.route("/admin/art/list/<int:page>/", methods=["GET"])
-@admin_login_req
+@login_required
 def art_list(page=None):
     if page is None:
         page = 1
@@ -210,14 +186,14 @@ def art_list(page=None):
 
 
 @admin.route("/admin/art/del/<int:id>/", methods=["GET"])
-@admin_login_req
+@login_required
 def art_del(id=None):
     art = Art.query.get_or_404(int(id))
     db.session().delete(art)
     db.session().commit()
     flash("Article is deleted", "ok")
     oplog = Oplog(
-            admin_id=session["admin_id"],
+            admin_id=current_user.id,
             reason="deleted article %s" % art.title,
             addtime=db.func.current_timestamp()
         )
@@ -227,7 +203,7 @@ def art_del(id=None):
 
 
 @admin.route("/art/edit/<int:id>/", methods=["GET", "POST"])
-@admin_login_req
+@login_required
 # @admin_auth
 def art_edit(id=None):
     form = ArtForm()
@@ -245,7 +221,7 @@ def art_edit(id=None):
        db.session().commit()
        flash("The article has bee successfully edited", "ok")
        oplog = Oplog(
-            admin_id=session["admin_id"],
+            admin_id=current_user.id,
             reason="edited article %s" % data["title"],
             addtime=db.func.current_timestamp()
         )
@@ -256,7 +232,7 @@ def art_edit(id=None):
 
 
 @admin.route("/admin/user/list/<int:page>/", methods=["GET"])
-@admin_login_req
+@login_required
 def user_list(page=None):
     if page is None:
         page == 1
@@ -267,14 +243,14 @@ def user_list(page=None):
 
 
 @admin.route("/admin/user/view/<int:id>/", methods=["GET"])
-@admin_login_req
+@login_required
 def user_view(id=None):
     user = User.query.get_or_404(int(id))
     return render_template("admin/user_view.html", user=user)
 
 
 @admin.route("/user/del/<int:id>/", methods=["GET"])
-@admin_login_req
+@login_required
 # @admin_auth
 def user_del(id=None):
     user = User.query.get_or_404(int(id))
@@ -282,7 +258,7 @@ def user_del(id=None):
     db.session().commit()
     flash("User has been deleted", "ok")
     oplog = Oplog(
-            admin_id=session["admin_id"],
+            admin_id=current_user.id,
             reason="deleted user %s" % user.name,
             addtime=db.func.current_timestamp()
         )
@@ -292,7 +268,7 @@ def user_del(id=None):
 
 
 @admin.route("/admin/comment/list/<int:page>/", methods=["GET"])
-@admin_login_req
+@login_required
 def comment_list(page=None):
     if page is None:
         page = 1
@@ -303,15 +279,15 @@ def comment_list(page=None):
 
 
 @admin.route("/comment/del/<int:id>/", methods=["GET"])
-@admin_login_req
-# @admin_auth
+@login_required
+
 def comment_del(id=None):
     comment = Comment.query.get_or_404(int(id))
     db.session().delete(comment)
     db.session().commit()
     flash("Comment has been deleted", "ok")
     oplog = Oplog(
-            admin_id=session["admin_id"],
+            admin_id=current_user.id,
             reason="deleted comment %s" % comment.content,
             addtime=db.func.current_timestamp()
         )
@@ -321,7 +297,7 @@ def comment_del(id=None):
 
 
 @admin.route("/admin/oplog/list/<int:page>/", methods=["GET"])
-@admin_login_req
+@login_required
 def oplog_list(page=None):
     if page is None:
         page = 1

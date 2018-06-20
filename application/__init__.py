@@ -1,5 +1,7 @@
-from flask import Flask
+
+from flask import Flask,url_for
 from flask_sqlalchemy import SQLAlchemy
+
 import os
 app = Flask(__name__)
 
@@ -13,7 +15,6 @@ else:
 
 db = SQLAlchemy(app)
 
-app.config["SECRET_KEY"] = "123"
 
 from application.home import home as home_blueprint
 from application.admin import admin as admin_blueprint
@@ -21,6 +22,11 @@ from application import models
 
 app.register_blueprint(home_blueprint)
 app.register_blueprint(admin_blueprint)
+
+
+
+from os import urandom
+app.config["SECRET_KEY"]=urandom(32)
 
 try:
     db.create_all()

@@ -14,7 +14,6 @@ class LoginForm(FlaskForm):
         render_kw={
             "class": "form-control",
             "placeholder": "Username"
-            # "required":"required"
         }
     )
 
@@ -27,7 +26,6 @@ class LoginForm(FlaskForm):
         render_kw={
             "class": "form-control",
             "placeholder": "Password"
-            # "required":"required"
         }
     )
     submit = SubmitField(
