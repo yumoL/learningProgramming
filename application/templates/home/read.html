@@ -1,0 +1,166 @@
+"[html]": {"html.validate.scripts": false} {% extends "home/home.html" %} {% import "ui/comment_page.html" as pg %} {% block
+content %}
+
+
+<div>
+    <div class="col-md-8" style="margin-top:30px">
+        <tr>
+
+            <td>
+                <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+                <textarea name="editor1" readonly>{{ art.text|safe }}</textarea>
+                <script>
+                    CKEDITOR.replace('editor1');
+
+                </script>
+            </td>
+
+
+
+        </tr>
+    </div>
+    <div class="col-md-4" style="height:400px;">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="glyphicon glyphicon-facetime-video"></span>&nbsp;</h3>
+            </div>
+            <div class="panel-body" style="height:280px;">
+                <table class="table">
+                    <tr>
+                        <td style="width:30%;color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-film"></span>&nbsp;Title
+                        </td>
+                        <td>{{ art.title }}</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-tag"></span>&nbsp;Tag
+                        </td>
+                        <td>{{ art.tag.name }}</td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-calendar"></span>&nbsp;Release time
+                        </td>
+                        <td>{{ art.addtime }}</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-play"></span>&nbsp;Read
+                        </td>
+                        <td>{{ art.readnum }}</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#ccc;font-weight:bold;font-style:italic;">
+                            <span class="glyphicon glyphicon-comment"></span>&nbsp;Comment number
+                        </td>
+                        <td>{{ art.commentnum }}</td>
+                    </tr>
+
+
+
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12" style="margin-top:6px;">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="glyphicon glyphicon-comment"></span>&nbsp;Comments</h3>
+            </div>
+            <div class="panel-body">
+                {% if not current_user.is_authenticated %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+
+                    <strong>Please
+                        <a href="{{ url_for('home.login') }}" target="_blank" class="text-info">login</a>，to comment！</strong>
+                </div>
+                {% endif %} {% if current_user.is_authenticated %} {% for msg in get_flashed_messages(category_filter=["err"]) %}
+                <p style="color:red;">{{ msg }}</p>
+                {% endfor %} {% for msg in get_flashed_messages(category_filter=["ok"]) %}
+                <p style="color:green;">{{ msg }}</p>
+                {% endfor %}
+                <form role="form" style="margin-bottom:6px;" method="post">
+                    <div class="form-group">
+                        <div>
+                            <label for="input_content">{{ form.content.label }}</label>
+
+
+                            {{ form.content }}
+                        </div>
+                        {% for err in form.content.errors %}
+                        <div class="col-md-12">
+                            <font style="color:red">{{ err }}</font>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {{ form.csrf_token }} {{ form.submit }}
+                    <a class="btn btn-danger" id="btn-col">
+                        <span class="glyphicon glyphicon-heart"></span>&nbsp;Like this article</a>
+
+                    <script>
+                        $(document).ready(function () {
+                            $("#btn-col").click(function () {
+                                var mid = {{ art.id }};
+                            var uid = {{ current_user.id }};
+                        $.ajax({
+                            url: "{{ url_for('home.artcol_add') }}",
+                            type: "GET",
+                            data: "mid=" + mid + "&uid=" + uid,
+                            dataType: "json",
+                            success: function (res) {
+                                if (res.ok == 1) {
+                                    $("#show_col_msg").empty();
+                                    $("#show_col_msg").append("Now you like this article")
+                                } else {
+                                    $("#show_col_msg").empty();
+                                    $("#show_col_msg").append("You have already liked it")
+                                }
+                            }
+                        })
+                                        })
+                                    });
+                    </script>
+                </form>
+                <div class="col-md-12">
+                    <font style="color:green" id="show_col_msg"></font>
+                </div class="clearfix">
+                {% endif %}
+                <ul class="commentList">
+                    {% for v in page_data.items %}
+
+                    <li class="item cl">
+                        <div class="comment-main" style="margin-top: 30px">
+                            <header class="comment-header">
+                                <div class="comment-meta">
+                                    <p class="comment-author">{{ v.account.name }}</p>
+                                    commented:
+                                </div>
+                            </header>
+                            <div class="comment-body">
+                                <p>{{ v.content }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="col-md-12 text-center">
+                    {{ pg.page(page_data,'home.read',art.id) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %} {% block js%} {% endblock %}
