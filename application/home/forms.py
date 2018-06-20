@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms.fields import StringField, SubmitField, PasswordField, TextAreaField
-from wtforms.validators import DataRequired, EqualTo, ValidationError
+from wtforms.validators import DataRequired, EqualTo, ValidationError,Length
 from application.models import User
 
 
@@ -8,8 +8,10 @@ class RegistForm(FlaskForm):
     name = StringField(
         label="Username",
         validators=[
-            DataRequired("Username cannot be empty")
+            DataRequired("Username cannot be empty"),
+            Length(min=3,max=100,message="The length of name should between 3-100 characters")
         ],
+
         description="Username",
         render_kw={
             "class": "form-control input lg",
@@ -19,7 +21,8 @@ class RegistForm(FlaskForm):
     pwd = PasswordField(
         label="Password",
         validators=[
-            DataRequired("Password cannot be empty")
+            DataRequired("Password cannot be empty"),
+            Length(min=3,max=100,message="The length of password should between 3-100 characters")
         ],
         description="Password",
         render_kw={
@@ -135,7 +138,8 @@ class CommentForm(FlaskForm):
     content=TextAreaField(
         label="Content",
         validators=[
-            DataRequired("Please enter your commit")
+            DataRequired("Please enter your commit"),
+            Length(min=1,max=1000,message="The length of your comment should between 1-1000 characters")
         ],
         description="Some comment here...",
         render_kw={

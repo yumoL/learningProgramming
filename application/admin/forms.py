@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, FileField, TextAreaField, SelectField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms.validators import DataRequired, ValidationError,Length
 from application.models import Admin, Tag
 
 
@@ -42,7 +42,8 @@ class TagForm(FlaskForm):
     name = StringField(
         label="Name",
         validators=[
-            DataRequired("Please enter the tag")
+            DataRequired("Please enter the tag"),
+            Length(min=1,max=100,message="The length of a tag should betweem 1-100 characters")
         ],
         description="Tag",
         render_kw={
@@ -64,7 +65,8 @@ class ArtForm(FlaskForm):
     title = StringField(
         label="Title",
         validators=[
-            DataRequired("Please enter your title ")
+            DataRequired("Please enter your title "),
+            Length(min=1,max=255,message="The length of a title should betweem 1-100 characters")
         ],
         description="Title",
         render_kw={
@@ -88,7 +90,8 @@ class ArtForm(FlaskForm):
     text = TextAreaField(
         label="Content",
         validators=[
-            DataRequired("Content cannnot be empty")
+            DataRequired("Content cannnot be empty"),
+             Length(min=1,max=100000,message="The length of your content should betweem 1-100000 characters")
         ],
         description="Content",
         render_kw={
