@@ -1,4 +1,4 @@
-<img src="https://github.com/yumoL/moviesComment/blob/master/dokumentaatio/tietokantakaavio.png">
+<img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/tietokantakaavio.png">
 
 -Käyttäjä(User) käyttää sovellusta, jokaisella käyttäjällä on oma uniikki käyttäjätunnus(name), salasana(pwd) ja rekisteröinnin aika(addtime)
 
