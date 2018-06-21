@@ -109,7 +109,7 @@ Artikkelin otsikon pitää olla uniikki. Lukijan etusivulle näytetään vain ar
 - Account:
 Käyttäjän nimen pitää olla uniikki. Kommenttilistassa näytetään kommentoijan nimi ja kommentin sisältö, jos eri käyttäjällä on sama nimi, muut eivät voi päätellä, kuka oli kirjoittanut jonkin kommentin. 
 - Admin: 
-<imr src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/oplogList.png">
+<img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/oplogList.png">
 Samasta syystä ylläpitäjän nimen pitää olla uniikka, muuten muut ylläpitäjät eiväi voi päätellä, kuka oli tehnyt jonkin toimenpiteen.
 
 
