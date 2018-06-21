@@ -23,7 +23,7 @@ Tavoite: Käyttäjä saada oman käyttäjätunnuksen kirjautuakseen sisään sov
 
 ## Ylläpitäjä
 ### Ylläpitäjä voi kirjautua sisään ylläpitokentälle.
-- Ylläpitäjällä on oma käyttäjätunnus ja salasana päästäkeen ylläpitokentälle.
+- Ylläpitäjällä on oma käyttäjätunnus ja salasana päästäkeen ylläpitokentälle. Ylläpitäjä voi olla joko super-ylläpitäjä tai tavallinen ylläpitäjä.
 
 Tavoite: Ylläpitäjä pääsee ylläpitämään sovellusta.
 
@@ -31,9 +31,9 @@ Tavoite: Ylläpitäjä pääsee ylläpitämään sovellusta.
 - Ylläpitäjä voi lisätä uusia artikkeleita ja poistaa vanhoja artikkeleita.
 
 ### Ylläpitäjä voi määritellä aiheita
-- Ylläpitäjä voi määritellä aiheita,joiden perusteella artikkeleita luokitellaan.
+-  Vain super-ylläpitäjä voi määritellä aiheita,joiden perusteella artikkeleita luokitellaan.
 
 ### Ylläpitäjä voi poistaa komentteja ja käyttäjiä
 
-- Ylläpitäjä voi poistaa komentteja, jotka rikkovat lakia tai ovat henkilökohtaisia hyökkäyksiä toisia käyttäjiä kohtaan.
-- Ylläpitäjä voi myös poiistaa käyttäjiä, jotka julkaistaa edellä mainittuja komentteja.
+- Super-ylläpitäjä voi poistaa komentteja, jotka rikkovat lakia tai ovat henkilökohtaisia hyökkäyksiä toisia käyttäjiä kohtaan.
+- Super-ylläpitäjä voi myös poistaa käyttäjiä, jotka julkaistaa edellä mainittuja komentteja.
