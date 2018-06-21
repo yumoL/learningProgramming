@@ -8,7 +8,7 @@
 
 - Käyttäjä voi tykätä artikkeleita(Artcol). Artikkeiden tykkäämisellä on tykkäyksen lisäämisaika. Yksi käyttäjä voi tykätä useampaa artikkelia ja yhdellä artikkelilla voi olla useampaa tykkääjää. 
 
-- Sovelluksella on ylläpitäjä(Admin), ylläpitäjällä voi olla monta päiväkirjaa toiminnoistaan, mutta yksi päiväkirja liittyy vain yhteen ylläpitäjään. 
+- Sovelluksella on ylläpitäjä(Admin), ylläpitäjällä voi olla monta päiväkirjaa toiminnoistaan, mutta yksi päiväkirja liittyy vain yhteen ylläpitäjään. Ylläpitäjä voi super(is_super=1) tai tavallinen. Vaan super-ylläpitäjällä on oikeus aiheen lisäämiseen, muokkaamiseen ja poistamiseen, sekä kommentin ja käyttäjän poistamiseen.
 
 ## CREATE TABLE-lauseet
 
@@ -70,6 +70,7 @@ CREATE TABLE admin (
 id INTEGER NOT NULL, 
 name VARCHAR(100), 
 pwd VARCHAR(100),
+is_super Integer
 primary key(id));
 
 ## Artcol
