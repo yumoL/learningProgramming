@@ -4,7 +4,7 @@
 
 - Artikkelilla(Art) on otsikko(title),sisältö(text), lukejien ja komenttien määrä sekä lisäämisaika(addtime). Yksi elokuva kuuluu vain yheen kategoriaan(Tag), toisaalta yhdellä kategorialla voi olla useampaa artikkelia. 
 
-- Käyttäjä kirjoittaa kometteja(Comment) artikkeleista. Komentilla on sisältö(content) ja muokkaamisaika(addtime). Yksi käyttäjä voi kirjoittaa useita komentteja useammasta artikkelista, yhdellä komentilla on vain yksi kirjoittaja.
+- Käyttäjä kirjoittaa kommentteja(Comment) artikkeleista. Komentilla on sisältö(content) ja muokkaamisaika(addtime). Yksi käyttäjä voi kirjoittaa useita kommentteja useammasta artikkelista, yhdellä kommentilla on vain yksi kirjoittaja.
 
 - Käyttäjä voi tykätä artikkeleita(Artcol). Artikkeiden tykkäämisellä on tykkäyksen lisäämisaika. Yksi käyttäjä voi tykätä useampaa artikkelia ja yhdellä artikkelilla voi olla useampaa tykkääjää. 
 
@@ -98,5 +98,19 @@ Kaikki tietokantaulut ovat toisessa normaalimuodossa:
 - Taulut ovat ensimmäisessä normaalimuodossa ja niillä on yhden sarakkeen avulla määritelty pääavain(id), joten ne ovat automaattisesti toisessa normaalimuodossa. 
 
 ### Kolmas normaalimuoto
+- Tietokantataulut Tag, Art, Account,Admin eivät ole kolmanessa normaalimuodossa:
+Taulussa Tag on funktionaalinen riippuvuus addtime->name,eli aiheen lisäämisaika voidaan päätellä sen nimen perusteella,      smaalla kaikki sarakkeet ovat selvitettävissä taulun pääavaimen(id) kautta, joten taulusta löytyy myös transitiivinen riippuvuus. Samalla muista tauluista löytyy sarakeita, jotka ovat transiivisesti riippuvaisia pääavimesta. 
+
+### Perustelu normaalisoinnin puutteille
+- Tag:
+Aiheen nimen pitää olla uniikki. Ei ole järkevää, että kaksi artikkelia kuuluu erilaisiin kategorioihin, mutta silti samasta aiheesta. 
+- Art:
+Artikkelin otsikon pitää olla uniikki. Lukijan etusivulle näytetään vain artikkeleiden otsikot, jos eri artikelilla on sama otsikko, lukijalla ei voi päätellä otsikon perusteella kumpaa artikkelia hän haluaa lukea. 
+- Account:
+Käyttäjän nimen pitää olla uniikki. Kommenttilistassa näytetään kommentoijan nimi ja kommentin sisältö, jos eri käyttäjällä on sama nimi, muut eivät voi päätellä, kuka oli kirjoittanut jonkin kommentin. 
+- Admin: 
+<imr src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/oplogList.png">
+Samasta syystä ylläpitäjän nimen pitää olla uniikka, muuten muut ylläpitäjät eiväi voi päätellä, kuka oli tehnyt jonkin toimenpiteen.
+
 
 
