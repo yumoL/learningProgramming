@@ -107,6 +107,7 @@ Aiheen nimen pitää olla uniikki. Ei ole järkevää, että kaksi artikkelia ku
 - Art:
 Artikkelin otsikon pitää olla uniikki. Lukijan etusivulle näytetään vain artikkeleiden otsikot, jos eri artikelilla on sama otsikko, lukijalla ei voi päätellä otsikon perusteella kumpaa artikkelia hän haluaa lukea. 
 - Account:
+<img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/comment.png">
 Käyttäjän nimen pitää olla uniikki. Kommenttilistassa näytetään kommentoijan nimi ja kommentin sisältö, jos eri käyttäjällä on sama nimi, muut eivät voi päätellä, kuka oli kirjoittanut jonkin kommentin. 
 - Admin: 
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/oplogList.png">
