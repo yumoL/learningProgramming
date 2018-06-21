@@ -81,3 +81,19 @@ addtime datetime,
 primary key(id),
 foreign key(art_id)references art(id),
 foreign key(user_id)references account(id));
+
+## Tietokannan normaalisointi
+### Ensimmäinen normaaimuoto
+Kaikki tietokantataulut ovat ensimmäisessä normaalimuodossa:
+- Sarakkeen arvot eivät saa sisältää listoja.
+- Taulun sarakkeet eivät muodosta toistuvia ryhmiä.
+- Sarakkeen arvot ovat saman tyyppisiä.
+- Jokaisen sarakkeen nimi on tietokantataulussa uniikki.
+- Sarakkeiden järjestys ei vaikuttaa tietokantataulun toimintaan.
+- Tietokantataulussa ei ole kahta täsmälleen samanlaista riviä.
+- Rivien järjestys ei vaikuttaa tietokantataulun toimintaan.
+
+### Toinen normaalimuoto
+Kaikki tietokantataulut ovat toisessa normaalimuodossa:
+- 
+
