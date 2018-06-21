@@ -94,6 +94,9 @@ Kaikki tietokantataulut ovat ensimmäisessä normaalimuodossa:
 - Rivien järjestys ei vaikuttaa tietokantataulun toimintaan.
 
 ### Toinen normaalimuoto
-Kaikki tietokantataulut ovat toisessa normaalimuodossa:
-- 
+Kaikki tietokantaulut ovat toisessa normaalimuodossa:
+- Taulut ovat ensimmäisessä normaalimuodossa ja niillä on yhden sarakkeen avulla määritelty pääavain(id), joten ne ovat automaattisesti toisessa normaalimuodossa. 
+
+### Kolmas normaalimuoto
+
 
