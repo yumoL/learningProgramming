@@ -1,5 +1,5 @@
 from . import admin
-from flask import render_template, redirect, url_for, flash, session, request
+from flask import render_template, redirect, url_for, flash, session, request,abort
 from application.admin.forms import LoginForm, TagForm, ArtForm, PwdForm
 from application.models import Admin, Tag, Art, User, Comment, Oplog
 from functools import wraps
@@ -10,16 +10,6 @@ import datetime
 import os
 import uuid
 
-# admin's login time
-
-
-@admin.context_processor
-def tpl_extra():
-    data = dict(
-        online_time=datetime.datetime.now().strftime("%m-%d-%Y %H:%M:%S")
-    )
-    return data
-
 
 def admin_login_req(f):
     @wraps(f)
@@ -28,6 +18,16 @@ def admin_login_req(f):
             return redirect(url_for("admin.login", next=request.url))
         return f(*args, **kwargs)
     return decorated_function
+
+def admin_auth(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        admin=Admin.query.filter(Admin.id==session["admin_id"]).first()
+        if admin.is_super==0:
+            abort(404)
+        return f(*args,**kwargs)
+    return decorated_function
+
 
 
 @admin.route("/admin/")
@@ -85,6 +85,7 @@ def pwd():
 
 @admin.route("/admin/tag/add/", methods=["GET", "POST"])
 @admin_login_req
+@admin_auth
 def tag_add():
     form = TagForm()
     if form.validate_on_submit():
@@ -124,6 +125,7 @@ def tag_list(page=None):
 
 @admin.route("/admin/tag/edit/<int:id>/", methods=["GET", "POST"])
 @admin_login_req
+@admin_auth
 def tag_edit(id=None):
     form = TagForm()
     tag = Tag.query.get_or_404(id)
@@ -150,6 +152,7 @@ def tag_edit(id=None):
 
 @admin.route("/admin/tag/del/<int:id>/", methods=["GET"])
 @admin_login_req
+@admin_auth
 def tag_del(id=None):
     art_count = Art.query.filter_by(tag_id=id).count()
     if art_count != 0:
@@ -211,6 +214,7 @@ def art_list(page=None):
 
 @admin.route("/admin/art/del/<int:id>/", methods=["GET"])
 @admin_login_req
+
 def art_del(id=None):
     art = Art.query.get_or_404(int(id))
     db.session().delete(art)
@@ -275,7 +279,7 @@ def user_view(id=None):
 
 @admin.route("/user/del/<int:id>/", methods=["GET"])
 @admin_login_req
-# @admin_auth
+@admin_auth
 def user_del(id=None):
     user = User.query.get_or_404(int(id))
     db.session().delete(user)
@@ -304,6 +308,7 @@ def comment_list(page=None):
 
 @admin.route("/comment/del/<int:id>/", methods=["GET"])
 @admin_login_req
+@admin_auth
 # @admin_auth
 def comment_del(id=None):
     comment = Comment.query.get_or_404(int(id))
@@ -335,4 +340,6 @@ def oplog_list(page=None):
     return render_template("admin/oplog_list.html", page_data=page_data)
 
 
-
+@admin.errorhandler(404)
+def page_not_found(error):
+    return render_template("admin/404.html"),404

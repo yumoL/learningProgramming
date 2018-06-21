@@ -11,26 +11,8 @@ class User(db.Model):
     comments = db.relationship('Comment', backref='account')
     artcols=db.relationship('Artcol', backref='account')
     
-    # def __repr__(self):
-    #     return "<User %r>" % self.name
-
-    def __init__(self, name, pwd,addtime):
-        self.name = name
-        self.pwd = pwd
-        self.addtime=addtime
-  
-    def get_id(self):
-        return self.id
-
-    def is_active(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
-    def is_authenticated(self):
-        return True
-
+    def __repr__(self):
+        return "<User %r>" % self.name
     
     def check_pwd(self,pwd):
         from werkzeug.security import check_password_hash
@@ -81,6 +63,7 @@ class Admin(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(100), unique=True)
     pwd = db.Column(db.String(100)) 
+    is_super = db.Column(db.Integer)
     oplogs = db.relationship("Oplog", backref='admin')
     def __repr__(self):
         return "<Admin %r>" % self.name

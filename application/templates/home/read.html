@@ -77,13 +77,13 @@ content %}
                     <span class="glyphicon glyphicon-comment"></span>&nbsp;Comments</h3>
             </div>
             <div class="panel-body">
-                {% if not current_user.is_authenticated %}
+                {% if "user" not in session %}
                 <div class="alert alert-danger alert-dismissible" role="alert">
 
                     <strong>Please
                         <a href="{{ url_for('home.login') }}" target="_blank" class="text-info">login</a>，to comment！</strong>
                 </div>
-                {% endif %} {% if current_user.is_authenticated %} {% for msg in get_flashed_messages(category_filter=["err"]) %}
+                {% endif %} {% if "user" in session %} {% for msg in get_flashed_messages(category_filter=["err"]) %}
                 <p style="color:red;">{{ msg }}</p>
                 {% endfor %} {% for msg in get_flashed_messages(category_filter=["ok"]) %}
                 <p style="color:green;">{{ msg }}</p>
@@ -110,7 +110,7 @@ content %}
                         $(document).ready(function () {
                             $("#btn-col").click(function () {
                                 var mid = {{ art.id }};
-                            var uid = {{ current_user.id }};
+                            var uid = {{ session["user_id"] }};
                         $.ajax({
                             url: "{{ url_for('home.artcol_add') }}",
                             type: "GET",

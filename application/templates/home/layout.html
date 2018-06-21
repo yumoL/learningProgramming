@@ -49,7 +49,7 @@
                         <a class="curlink" href="{{ url_for('home.index',page=1) }}">
                             <span class="glyphicon glyphicon-film"></span>&nbsp;Articles</a>
                     </li>
-                    {% if not current_user.is_authenticated %}
+                    {% if "user" not in session %}
                     <li>
                         <a class="curlink" href="{{ url_for('home.login') }}">
                             <span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a>
@@ -59,7 +59,7 @@
                             <span class="glyphicon glyphicon-plus"></span>&nbsp;Register</a>
                     </li>
                     {% endif %}
-                    {% if current_user.is_authenticated %}
+                    {% if "user" in session %}
                     <li>
                         <a class="curlink" href="{{ url_for('home.logout') }}">
                             <span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a>
