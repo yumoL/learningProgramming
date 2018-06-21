@@ -23,7 +23,7 @@ def admin_auth(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         admin=Admin.query.filter(Admin.id==session["admin_id"]).first()
-        if admin.is_super==0:
+        if admin.is_super!=1:
             abort(404)
         return f(*args,**kwargs)
     return decorated_function
