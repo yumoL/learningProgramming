@@ -21,7 +21,8 @@ käyttäjätunnus:aleksi salasana:123
 käyttäjätunnus:jussi  salasana:321
 
 [ylläpitäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/admin/)
-käyttäjätunnus:lym  salasana:123
+(super-ylläpitäjä) tunnus:super  salasana:123 
+(tavallinen ylläpitäjä) tunnus: normal  salasana:321
 
 ## Dokumentaatio
 
