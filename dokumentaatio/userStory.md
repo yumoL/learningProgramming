@@ -2,15 +2,21 @@
 
 ## Käyttäjä
 ### Käyttäjä voi kirjautua sisään sovellukseen
-- Käyttäjä,jolla on käyttäjätunnus, voi kirjautua sisään syöttämällä syöttökentillä oman käyttäjätunnuksen ja salasanan.
+- Käyttäjä, jolla on käyttäjätunnus, voi kirjautua sisään syöttämällä syöttökentillä oman käyttäjätunnuksen ja salasanan.
 - Käyttäjä, jolla ei vielä ole käyttäjätunnusta, voi saada oman käyttäjätunnuksen rekisteröimisen jälkeen.
 
 Tavoite: Käyttäjä pääsee sovellukseen.
+```
+SELECT FROM account WHERE name="syöttöentälle annettu nimi" ja pwd="syöttökentälle annettu salasana";
+```
 
 ### Käyttäjä voi rekisteröidä
 - Käyttäjä, jolla ei vielä ole käyttäjätunnusta, voi mennä rekisteröinnille.
 
 Tavoite: Käyttäjä saada oman käyttäjätunnuksen kirjautuakseen sisään sovellukseen.
+```
+INSERT INTO account(name,pwd,addtime) VALUES("nimi","salasana","CURRENT_TIMESTAMP);
+```
 
 ### Käyttäjä voi komentoida artikkeleita
 - Käyttäjä, jolla on käyttäjätunnus, voi kirjauduttuaan kommentoida artikeleita
