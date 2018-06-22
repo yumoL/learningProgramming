@@ -50,7 +50,19 @@ Sisään kirjautunut käyttäjä pääsee näkemään kaikki omat komentit ja ty
 
 ## Ylläpitäjä
 ### Ylläpitäjän lisääminen
-#### ssss
+Ylläpitäjä lisätään suoraan tietokantaan kommenorivillä:
+- Mennään tietokantaan kommennolla:
+```
+heroku pg:psql
+```
+- Super-ylläpitäjän lisääminen:
+```
+INSERT INTO admin(name,pwd,is_super) VALUES ('nimi','salasana',1);
+```
+- Tavallisen ylläpitäjän lisääminen:
+```
+INSERT INTO admin(name,pwd) VALUES ('nimi','salasana');
+```
 
 ### Sisään kirjautuminen
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/login.png">
