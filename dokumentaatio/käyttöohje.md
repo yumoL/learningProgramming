@@ -49,6 +49,8 @@ Sisään kirjautunut käyttäjä pääsee näkemään kaikki omat komentit ja ty
 
 
 ## Ylläpitäjä
+### Ylläpitäjän lisääminen
+#### ssss
 
 ### Sisään kirjautuminen
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/login.png">
