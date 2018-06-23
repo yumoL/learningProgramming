@@ -70,7 +70,7 @@ CREATE TABLE admin (
 id INTEGER NOT NULL, 
 name VARCHAR(100), 
 pwd VARCHAR(100),
-is_super Integer
+is_super Integer,
 primary key(id));
 
 ## Artcol
