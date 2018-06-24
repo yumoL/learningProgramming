@@ -29,9 +29,6 @@
                                 <td>{{ v.name }}</td>
                                 <td>{{ v.addtime }}</td>
                                 <td>
-                                    <a class="label label-success" href="{{ url_for('admin.user_view',id=v.id) }}">Check</a>
-                                    &nbsp;
-                                    
                                     <a class="label label-danger" href="{{ url_for('admin.user_del',id=v.id) }}">Delete</a>
                                 </td>
                             </tr>

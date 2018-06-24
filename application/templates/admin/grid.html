@@ -1,51 +1,51 @@
-<ul class="sidebar-menu">
-    <li class="header">Administration menu</li>
+<ul >
+    <li>Administration menu</li>
 
-    <li class="treeview">
+    <li>
         <a>
 
             <span>Tag</span>
         </a>
-        <ul class="treeview-menu">
+        <ul>
             <li>
                 <a href="{{ url_for('admin.tag_add') }}">
-                    <i class="fa fa-circle-o"></i> Add tags
+                    <i></i> Add tags
                 </a>
             </li>
             <li>
                 <a href="{{ url_for('admin.tag_list',page=1) }}">
-                    <i class="fa fa-circle-o"></i> Tag list
+                    <i></i> Tag list
                 </a>
             </li>
         </ul>
     </li>
-    <li class="treeview">
+    <li>
         <a>
 
             <span>Article</span>
 
         </a>
-        <ul class="treeview-menu">
+        <ul>
             <li>
                 <a href="{{ url_for('admin.art_add') }}">
-                    <i class="fa fa-circle-o"></i> Add articles
+                    <i></i> Add articles
                 </a>
             </li>
             <li>
                 <a href="{{ url_for('admin.art_list',page=1) }}">
-                    <i class="fa fa-circle-o"></i> Article list
+                    <i></i> Article list
                 </a>
             </li>
         </ul>
     </li>
 
-    <li class="treeview">
+    <li>
         <a>
 
             <span>User</span>
 
         </a>
-        <ul class="treeview-menu">
+        <ul class=>
             <li>
                 <a href="{{ url_for('admin.user_list',page=1) }}">
                     <i class="fa fa-circle-o"></i> User list
@@ -53,13 +53,13 @@
             </li>
         </ul>
     </li>
-    <li class="treeview">
+    <li>
         <a>
 
             <span>Comment</span>
 
         </a>
-        <ul class="treeview-menu">
+        <ul>
             <li>
                 <a href="{{ url_for('admin.comment_list',page=1) }}">
                     <i class="fa fa-circle-o"></i> Comment list
@@ -68,20 +68,26 @@
         </ul>
     </li>
 
-    <li class="treeview">
+    <li >
         <a>
-            <i class="fa fa-file-text" aria-hidden="true"></i>
+            <i ></i>
             <span>Log</span>
 
         </a>
-        <ul class="treeview-menu">
+        <ul >
             <li>
                 <a href="{{ url_for('admin.oplog_list',page=1) }}">
-                    <i class="fa fa-circle-o"></i> Operation log list
+                    <i></i> Operation log list
                 </a>
             </li>
 
         </ul>
+    </li>
+    <li>
+        <a href="{{ url_for('home.index',page=1) }}">
+            <i> To Users' first page</i>
+
+        </a>
     </li>
 
     

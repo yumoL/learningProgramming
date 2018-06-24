@@ -93,8 +93,8 @@ class ArtForm(FlaskForm):
         ],
         description="Content",
         render_kw={
-            "Style": "height:300px; width:500px;",
-            "id": "content"
+            "Style": "height:600px; width:500px;",
+            "id":"content"
         }
 
     )

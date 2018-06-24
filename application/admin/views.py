@@ -5,12 +5,10 @@ from application.models import Admin, Tag, Art, User, Comment, Oplog
 from functools import wraps
 from application import db, app
 from sqlalchemy.sql import text
-from datetime import datetime
-import datetime
-import os
-import uuid
 
+#admins' functions
 
+# authentication
 def admin_login_req(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -19,6 +17,7 @@ def admin_login_req(f):
         return f(*args, **kwargs)
     return decorated_function
 
+#authorization
 def admin_auth(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -29,13 +28,13 @@ def admin_auth(f):
     return decorated_function
 
 
-
+# first page 
 @admin.route("/admin/")
 @admin_login_req
 def index():
     return render_template("admin/index.html")
 
-
+#login
 @admin.route("/admin/login/", methods=["GET", "POST"])
 def login():
     form = LoginForm()
@@ -51,7 +50,7 @@ def login():
         return redirect(request.args.get("next") or url_for("admin.index"))
     return render_template("admin/login.html", form=form)
 
-
+# logout
 @admin.route("/admin/logout/")
 @admin_login_req
 def logout():
@@ -60,8 +59,6 @@ def logout():
     return redirect(url_for("admin.login"))
 
 #change password
-
-
 @admin.route("/admin/pwd/", methods=["GET", "POST"])
 @admin_login_req
 def pwd():
@@ -82,7 +79,7 @@ def pwd():
 
     return render_template("admin/pwd.html", form=form)
 
-
+# add a tag
 @admin.route("/admin/tag/add/", methods=["GET", "POST"])
 @admin_login_req
 @admin_auth
@@ -111,7 +108,7 @@ def tag_add():
         redirect(url_for('admin.tag_add'))
     return render_template("admin/tag_add.html", form=form)
 
-
+# tag list
 @admin.route("/admin/tag/list/<int:page>/", methods=["GET"])
 @admin_login_req
 def tag_list(page=None):
@@ -122,7 +119,7 @@ def tag_list(page=None):
     ).paginate(page=page, per_page=6)
     return render_template("admin/tag_list.html", page_data=page_data)
 
-
+# edit a tag
 @admin.route("/admin/tag/edit/<int:id>/", methods=["GET", "POST"])
 @admin_login_req
 @admin_auth
@@ -149,7 +146,7 @@ def tag_edit(id=None):
         redirect(url_for('admin.tag_edit', id=id))
     return render_template("admin/tag_edit.html", form=form, tag=tag)
 
-
+# delete a tag
 @admin.route("/admin/tag/del/<int:id>/", methods=["GET"])
 @admin_login_req
 @admin_auth
@@ -171,7 +168,7 @@ def tag_del(id=None):
         db.session().commit()
     return redirect(url_for('admin.tag_list', page=1))
 
-
+# add an article
 @admin.route("/admin/art/add/", methods=["GET", "POST"])
 @admin_login_req
 def art_add():
@@ -200,7 +197,7 @@ def art_add():
        return redirect(url_for('admin.art_add'))
     return render_template("admin/art_add.html", form=form)
 
-
+# article list
 @admin.route("/admin/art/list/<int:page>/", methods=["GET"])
 @admin_login_req
 def art_list(page=None):
@@ -211,7 +208,7 @@ def art_list(page=None):
     ).paginate(page=page, per_page=10)
     return render_template("admin/art_list.html", page_data=page_data)
 
-
+# delete an article
 @admin.route("/admin/art/del/<int:id>/", methods=["GET"])
 @admin_login_req
 
@@ -229,10 +226,9 @@ def art_del(id=None):
     db.session().commit()
     return redirect(url_for('admin.art_list', page=1))
 
-
+# edit an article
 @admin.route("/art/edit/<int:id>/", methods=["GET", "POST"])
 @admin_login_req
-# @admin_auth
 def art_edit(id=None):
     form = ArtForm()
     art = Art.query.get_or_404(int(id))
@@ -243,7 +239,7 @@ def art_edit(id=None):
     if form.validate_on_submit():
        data = form.data
        art.title = data["title"]
-       art.tag = data["tag"]
+       art.tag_id = data["tag_id"]
        art.text = data["text"]
        db.session().add(art)
        db.session().commit()
@@ -258,7 +254,7 @@ def art_edit(id=None):
        return redirect(url_for('admin.art_edit', id=id))
     return render_template("admin/art_edit.html", form=form, art=art)
 
-
+# user list
 @admin.route("/admin/user/list/<int:page>/", methods=["GET"])
 @admin_login_req
 def user_list(page=None):
@@ -269,14 +265,7 @@ def user_list(page=None):
     ).paginate(page=page, per_page=10)
     return render_template("admin/user_list.html", page_data=page_data)
 
-
-@admin.route("/admin/user/view/<int:id>/", methods=["GET"])
-@admin_login_req
-def user_view(id=None):
-    user = User.query.get_or_404(int(id))
-    return render_template("admin/user_view.html", user=user)
-
-
+# delete a user
 @admin.route("/user/del/<int:id>/", methods=["GET"])
 @admin_login_req
 @admin_auth
@@ -294,7 +283,7 @@ def user_del(id=None):
     db.session().commit()
     return redirect(url_for('admin.user_list', page=1))
 
-
+# comment list
 @admin.route("/admin/comment/list/<int:page>/", methods=["GET"])
 @admin_login_req
 def comment_list(page=None):
@@ -305,7 +294,7 @@ def comment_list(page=None):
 
     return render_template("admin/comment_list.html", page_data=page_data)
 
-
+# delete a comment
 @admin.route("/comment/del/<int:id>/", methods=["GET"])
 @admin_login_req
 @admin_auth
@@ -324,7 +313,7 @@ def comment_del(id=None):
     db.session().commit()
     return redirect(url_for('admin.comment_list', page=1))
 
-
+# operation log
 @admin.route("/admin/oplog/list/<int:page>/", methods=["GET"])
 @admin_login_req
 def oplog_list(page=None):
@@ -339,7 +328,7 @@ def oplog_list(page=None):
     ).paginate(page=page, per_page=10)
     return render_template("admin/oplog_list.html", page_data=page_data)
 
-
+# 404 page, when an admin has no access to certain function
 @admin.errorhandler(404)
 def page_not_found(error):
     return render_template("admin/404.html"),404

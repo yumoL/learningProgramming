@@ -1,14 +1,7 @@
-{% extends "admin/admin.html" %}
-{% block content %}
+{% extends "admin/admin.html" %} {% block content %}
 <section class="content-header">
     <h1>Administration</h1>
-    <ol class="breadcrumb">
-        <!-- <li>
-            <a href="#">
-                <i class="fa fa-dashboard"></i> 个人资料</a>
-        </li> -->
-        <li class="active">Change  password</li>
-    </ol>
+
 </section>
 <section class="content" id="showcontent">
     <div class="row">
@@ -19,16 +12,14 @@
                 </div>
                 <form role="form" method="post">
                     <div class="box-body">
-                            {% for msg in get_flashed_messages(category_filter=["ok"]) %}
-                            <p class="tag_add-box-msg" style="color:green">{{ msg }}</p>
-                            {% endfor %}
-                            {% for msg in get_flashed_messages(category_filter=["err"]) %}
-                            <p class="tag_add-box-msg" style="color:red">{{ msg }}</p>
-                            {% endfor %}
+                        {% for msg in get_flashed_messages(category_filter=["ok"]) %}
+                        <p class="tag_add-box-msg" style="color:green">{{ msg }}</p>
+                        {% endfor %} {% for msg in get_flashed_messages(category_filter=["err"]) %}
+                        <p class="tag_add-box-msg" style="color:red">{{ msg }}</p>
+                        {% endfor %}
                         <div class="form-group">
                             <label for="input_pwd">{{ form.old_pwd.label }}</label>
-                            {{ form.old_pwd }}
-                            {% for err in form.old_pwd.errors %}
+                            {{ form.old_pwd }} {% for err in form.old_pwd.errors %}
                             <div class="col-md-12">
                                 <font style="color:red">{{ err }}</font>
                             </div>
@@ -36,8 +27,7 @@
                         </div>
                         <div class="form-group">
                             <label for="input_newpwd">{{ form.new_pwd.label }}</label>
-                            {{ form.new_pwd }}
-                            {% for err in form.new_pwd.errors %}
+                            {{ form.new_pwd }} {% for err in form.new_pwd.errors %}
                             <div class="col-md-12">
                                 <font style="color:red">{{ err }}</font>
                             </div>
@@ -45,8 +35,7 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                            {{ form.csrf_token }}
-                            {{ form.submit }}
+                        {{ form.csrf_token }} {{ form.submit }}
                     </div>
                 </form>
             </div>

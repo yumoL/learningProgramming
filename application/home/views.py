@@ -3,12 +3,12 @@ from flask import render_template, redirect, url_for, flash, session,request
 from application.home.forms import RegistForm, LoginForm,UserdetailForm,PwdForm,CommentForm
 from application.models import User,Tag,Art,Comment,Artcol
 from werkzeug.security import generate_password_hash
-import datetime
 from application import db
 from functools import wraps 
 
+# users' functions
 
-
+# authentication
 def user_login_req(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -18,6 +18,7 @@ def user_login_req(f):
 
     return decorated_function
 
+#login
 @home.route("/login/", methods=["GET", "POST"])
 def login():
     form = LoginForm()
@@ -35,7 +36,7 @@ def login():
         return redirect(url_for("home.user"))
     return render_template("home/login.html", form=form)
 
-
+#logout
 @home.route("/logout/")
 @user_login_req
 def logout():
@@ -43,7 +44,7 @@ def logout():
     session.pop("user_id", None)
     return redirect(url_for("home.login"))
 
-
+#register
 @home.route("/regist/", methods=["GET", "POST"])
 def regist():
     form = RegistForm()
@@ -101,7 +102,7 @@ def pwd():
         return redirect(url_for('home.logout'))
     return render_template("home/pwd.html",form=form)
 
-
+# comment list i user center
 @home.route("/comments/<int:page>/")
 @user_login_req
 def comments(page=None):
@@ -111,7 +112,7 @@ def comments(page=None):
                                                             User.id == session["user_id"]).order_by(Comment.addtime.desc()).paginate(page=page, per_page=5)
     return render_template("home/comments.html",page_data=page_data)
 
-
+# front page
 @home.route("/<int:page>/",methods=["GET"])
 def index(page=None):
     tags=Tag.query.all()
@@ -144,7 +145,7 @@ def index(page=None):
             )
     if page is None:
         page=1
-    page_data=page_data.paginate(page=page,per_page=5)
+    page_data=page_data.paginate(page=page,per_page=8)
     p=dict(
         tid=tid,
         pm=pm,
@@ -152,7 +153,7 @@ def index(page=None):
     )
     return render_template("home/index.html",tags=tags,p=p,page_data=page_data)
 
-
+# search articles according to title
 @home.route("/search/<int:page>/")
 def search(page=None):
     if page is None:
@@ -169,6 +170,7 @@ def search(page=None):
     page_data.key=key
     return render_template("home/search.html",art_count=art_count,key=key,page_data=page_data)
 
+# show certain article, including comments
 @home.route("/read/<int:id>/<int:page>/",methods=["GET","POST"])
 def read(id=None,page=None):
     art=Art.query.join(Tag).filter(
@@ -182,6 +184,7 @@ def read(id=None,page=None):
                                                             User.id == Comment.user_id).order_by(Comment.addtime.desc()).paginate(page=page, per_page=5)
     art.readnum=art.readnum+1
     form=CommentForm()
+    #comment an article
     if "user" in session and form.validate_on_submit():
         data=form.data
         comment=Comment(
@@ -203,6 +206,7 @@ def read(id=None,page=None):
     db.session().commit()
     return render_template("home/read.html",art=art,form=form,page_data=page_data)
 
+# like the article
 @home.route("/artcol/add/", methods=["GET"])
 @user_login_req
 def artcol_add():
@@ -227,6 +231,7 @@ def artcol_add():
     import json
     return json.dumps(data)
 
+# show what articles the user have been liked in user center
 @home.route("/artcol/<int:page>/")
 @user_login_req
 def artcol(page=None):

@@ -90,7 +90,8 @@ class UserdetailForm(FlaskForm):
     name=StringField(
         label="Username",
         validators=[
-            DataRequired("Please enter a username")
+            DataRequired("Please enter a username"),
+            Length(min=3,max=100,message="The length of name should between 3-100 characters")
         ],
         render_kw={
             "class":"form-control",
@@ -119,7 +120,8 @@ class PwdForm(FlaskForm):
     new_pwd=PasswordField(
         label="New password",
         validators=[
-            DataRequired("Please enter your new password")
+            DataRequired("Please enter your new password"),
+            Length(min=3,max=100,message="The length of password should between 3-100 characters")
         ],
         description="New password",
         render_kw={

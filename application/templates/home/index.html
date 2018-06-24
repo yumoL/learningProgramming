@@ -48,15 +48,13 @@
             {% for v in page_data.items %}
             <div class="col-md-3">
                 <div class="artlist text-center">
-                    <!--<img data-original="holder.js/262x166"
-                             class="img-responsive lazy center-block" alt="">-->
-                    
-                    <div class="text-left" style="margin-left:auto;margin-right:auto;width:110px;">
+                   
+                    <div class="text-left" >
                         <h3>{{ v.title }}</h3>
-                        
-                    </div>
-                    <a href="{{ url_for('home.read',id=v.id,page=1) }}" class="btn btn-primary" target="_blank" role="button">
+                        <a href="{{ url_for('home.read',id=v.id,page=1) }}" class="btn btn-primary" target="_blank" role="button">
                         &nbsp;Read</a>
+                    </div>
+                    
                 </div>
             </div>
             {% endfor %}
