@@ -7,7 +7,8 @@ Sivunumero, jossa käyttäjä on, voisi merkitty seuraavasti:
 - Jos sivussa ei ole yhtään dataa(esim. tyhjässä kommenttisivussa ei ole yhtään kommenttia),painiketta "last page" klikatessa käyttäjä ohjataan 404-sivuun.
 Painikkeen "last page" pitäisi olla autimaattisesti pois käytöstä, jos sivussa ei ole yhtään dataa. 
 
-### Ajan formaatti ja aikavyöhyke
+### Aikaformaatti ja aikavyöhyke
+Aikaformaatti näyttää normaalilta paikalisessa Sqlitessä, mutta kun siirrytään PostgreSQL:ään aiakformaatti on muodossa"2018-06-24 13:00:12.266359", joka näyttää vähän sekavalta. Myös PostgreSQL:ään tallennuttu aika on aina kolme tuntia myöhemmin kuin paikallista aikaa johtuen kenties siitä, että PostgreSQL:ässä käytetään paikallisen ajan sijaan palvelimen aikaa. 
 
 
 ## Ylläpitäjä
@@ -18,6 +19,7 @@ Artikkelin muokkaaminen on toteutettu sillä tavalla, että ylläpitäjä voi mu
 Sovelluksen ylläpitäjällä on kaksi roolia, super-ylläpitäjä ja tavallinen ylläpitäjä. Ylläpitäjän tietokantataulun attribuutin is_super perusteella voidaan päätellä, onko kirjautuneena oleva super-ylläpitäjä ja tavallinen ylläpitäjä. Ylläpitäjän roolit kannattaisi tallentaa erillisenä tietokantauluna.
 
 ### Ylläpitäjän lisääminen ja salasanan suojaaminen
+Ylläpitäjä lisätään suoraan tietokantaan kommentorivillä, jonka seurauksena ylläpitäjän salasana on selkolielinen eikä ole suojautu esim. hajautustaulun avulla. 
 
 ## Käyttäjä
 ### Artikkelin kommentoiminen
