@@ -24,3 +24,6 @@ Ylläpitäjä lisätään suoraan tietokantaan kommentorivillä, jonka seuraukse
 ## Käyttäjä
 ### Artikkelin kommentoiminen
 Artikkelin kommentoiminen vaatii käyttäjän sisäänkirjautumista. Kirjautumisen jälkeen käyttäjä ohjataan uudestaan etusivuun eikä siihen sivuun, jossa kommentoitava artikkeli on, jolloin käyttäjä joutuu etsimään artikkelia uudestaan. Tämä voi olla työlästä erityisesti silloin, kun artikkeleita on paljon. Samalla kun käyttäjä menee uudestaan artikkelin lukemissivuun kirjautumisen jälkeen, artikkelin lukijien määrä kasvaa yhdellä, mikä ei ole järkevää. Lukeminen, joka tapahtuu ennen kirjautumista ja kirjautumisen jälkeen, pitää laskea samaksi lukemiskerraksi. 
+
+### Linkki artikkelissa
+Artikkelin muokkaamisessa voidaan lisätä linkkejä, mutta linkit eivät toimi käyttäjän lukemissivussa. 
