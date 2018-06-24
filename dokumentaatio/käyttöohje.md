@@ -7,7 +7,7 @@
 
 
 ### Artikkelin lajittelu ja järjestäminen
-Käyttäjä voi lajitella artikkeleita klikkaamalla rivillä _Article tag_ olevia painikkeita, jolloin etusivulla näkyy vain tiettyyn aiheeseen liittyvät artikkelit. Lisäksi käyttäjä voi järjestää artikkeleita lukijien tai komenttien määrän perusteella. Esimerkiksi käyttäjän klikatessa rivillä _Read_ painetta _Most first_ artikkeli, jolla on eniten lukijia, tulee ensimmäiseksi. 
+Käyttäjä voi lajitella artikkeleita klikkaamalla rivillä _Article tag_ olevia painikkeita, jolloin etusivussa näkyy vain tiettyyn aiheeseen liittyvät artikkelit. Lisäksi käyttäjä voi järjestää artikkeleita lukijien tai komenttien määrän perusteella. Esimerkiksi käyttäjän klikatessa rivillä _Read_ painetta _Most first_ artikkeli, jolla on eniten lukijia, tulee ensimmäiseksi. 
 
 
 ### Sisään kirjautuminen
@@ -17,7 +17,7 @@ Käyttäjä, jolla on käyttäjätunnus,voi kirjautua sisään sovellukseen klik
 
 ### Uuden käyttäjän luominen
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/rekisteri.png">
-Käyttäjä, jolla ei vielä ole käyttäjätunnusta, voi mennä rekisteröimään klikkaamalla painiketta _Rigister_ ja syöttämällä syöttökentille uniikin käyttäjätunnuksen ja salasanan. Tämän jälkeen käyttäjä voi kirjautua sisään sovellukseen edellisellä mainitulla kirjautumissivulla.
+Käyttäjä, jolla ei vielä ole käyttäjätunnusta, voi mennä rekisteröimään klikkaamalla painiketta _Rigister_ ja syöttämällä syöttökentille uniikin käyttäjätunnuksen ja salasanan. Tämän jälkeen käyttäjä voi kirjautua sisään sovellukseen edellisellä mainitussa kirjautumissivussa.
 
 
 ### Artikkelin etsinen 
@@ -27,7 +27,7 @@ Käyttäjä voi etsiä tiettyä artikkelia otsikon avainsanan perusteella kirjoi
 
 ### Artikkelin lukeminen
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/lukemissivu.png">
-Kaikki käyttäjät,jotka ovat kirjautuneet sisään ja jotka eivät, pääsevät lukemaan artikkelia klikkaamalla artikkelin otsikon alhaalla olevaa painiketta _Read_, jonka jälkeen käyttäjät pääsevät artikkelin lukemissivulle. Tiedot artikkelista(otsikko, aihe, julkaisuaika, lukijien ja komenttien määrä) näkyvät lukemiskentän oikealla puolella.
+Kaikki käyttäjät,jotka ovat kirjautuneet sisään ja jotka eivät, pääsevät lukemaan artikkelia klikkaamalla artikkelin otsikon alhaalla olevaa painiketta _Read_, jonka jälkeen käyttäjät pääsevät artikkelin lukemissivuun. Tiedot artikkelista(otsikko, aihe, julkaisuaika, lukijien ja komenttien määrä) näkyvät lukemiskentän oikealla puolella.
 
 
 ### Komentin julkaiseminen ja artikkelin tykkääminen
@@ -72,8 +72,8 @@ Ylläpitäjä pääsee ylläpitokentälle syöttämällä syöttökentille oikei
 ### Aiheen muokkaaminen ja listaaminen
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/addtags.png">
 <imr src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/taglist.png">
-Ylläpitäjä voi lisätä uusia aiheita klikkaamalla _Add tags_ ja nähdä kaikki aiheet klikkaamalla _Tag list_.
-Aiheen listalla ylläpitäjä voi muokata tiettyä aihetta klikkaamalla painiketta _edit_ ja poistaa aiheen klikkaamalla painiketta _delete_. 
+Super-ylläpitäjä voi lisätä uusia aiheita klikkaamalla _Add tags_ ja nähdä kaikki aiheet klikkaamalla _Tag list_.
+Aiheen listalla super-ylläpitäjä voi muokata tiettyä aihetta klikkaamalla painiketta _edit_ ja poistaa aiheen klikkaamalla painiketta _delete_. 
 
 
 ### Artikkelin muokkaaminen ja listaaminen
@@ -85,12 +85,12 @@ Aiheen listalla ylläpitäjä voi muokata  tiettyä artikkelia klikkaamalla pain
 
 ### Käyttäjän listaaminen
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/userList.png">
-Ylläpitäjä voi tarkistaa kaikkien sovelluksen käyttäjien tiedot klikkaamalla _User list_. Lisäksi ylläpitäjä voi poistaa käyttäjätunnuksen klikkaamalla käyttäjätunnuksen oikealla olevaa painiketta _delete_, minkä jälkeen käyttäjä ei voi enää kirjautua sisään poistetulla käyttäjätunnuksella.
+Ylläpitäjä voi tarkistaa kaikkien sovelluksen käyttäjien tiedot klikkaamalla _User list_. Lisäksi super-ylläpitäjä voi poistaa käyttäjätunnuksen klikkaamalla käyttäjätunnuksen oikealla olevaa painiketta _delete_, minkä jälkeen käyttäjä ei voi enää kirjautua sisään poistetulla käyttäjätunnuksella.
 
 
 ### Komentin listaaminen
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/commentList.png">
-Ylläpitäjä näkee kaikki kommentit klikkaamalla _Comment list_. Lisäksi ylläpitäjä voi poistaa komentin klikkaamalla komentin alhaalla olevaa painiketta _delete_,
+Ylläpitäjä näkee kaikki kommentit klikkaamalla _Comment list_. Lisäksi super-ylläpitäjä voi poistaa komentin klikkaamalla komentin alhaalla olevaa painiketta _delete_,
 
 
 ### Toimenpiteen listaaminen
