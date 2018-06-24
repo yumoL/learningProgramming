@@ -1,8 +1,6 @@
-{% extends "admin/admin.html" %} 
+{% extends "admin/admin.html" %} {% block content %}
 
-{% block content %}
-
-<section class="content" id="showcontent">
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
@@ -12,10 +10,10 @@
                 <form role="form" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                         {% for msg in get_flashed_messages(category_filter=["ok"]) %}
-                        <p class="tag_add-box-msg" style="color:green">{{ msg }}</p>
+                        <p>style="color:green">{{ msg }}</p>
                         {% endfor %}
                         <div class="form-group">
-                            <label for="input_title">{{ form.title.label }}</label>
+                            <label>{{ form.title.label }}</label>
                             {{ form.title }} {% for err in form.title.errors %}
                             <div class="col-me-12">
                                 <font style="color:red">{{ err }}</font>
@@ -25,7 +23,7 @@
 
 
                         <div class="form-group">
-                            <label for="input_tag_id">{{ form.tag_id.label}}</label>
+                            <label>{{ form.tag_id.label}}</label>
                             {{ form.tag_id }} {% for err in form.tag_id.errors %}
                             <div class="col-me-12">
                                 <font style="color:red">{{ err }}</font>
@@ -35,17 +33,16 @@
                         <div class="form-group">
 
                             <label>{{ form.text.label }}</label>
-                            
+
                             <td>
-                                <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
-                                {{ form.text }}
+                                <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script> {{ form.text }}
                                 <script>
                                     CKEDITOR.replace('content');
-                
+
                                 </script>
                             </td>
-                
-                            
+
+
                             {% for err in form.text.errors %}
                             <div class="col-me-12">
                                 <font style="color:red">{{ err }}</font>

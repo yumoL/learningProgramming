@@ -1,4 +1,4 @@
-{% extends "home/layout.html" %} 
+{% extends "home/home.html" %} 
 {% import "ui/admin_page.html" as pg %}
 {% block content %}
 
@@ -6,11 +6,11 @@
 
 <section style="margin-top: 150px">
     <div class="container">
-        <div class="row wow fadeIn" data-wow-delay="0.6s">
+        <div >
             <div class="col-md-12 table-responsive">
                 <table class="table text-left table-bordered" id="arttags">
                     <tr>
-                        <td style="width:10%;">Article tag</td>
+                        <td >Article tag</td>
                         <td style="width:90%;">
                             {% for v in tags %}
                             <a href="{{ url_for('home.index',page=1) }}?tid={{ v.id }}&pm={{ p['pm'] }}&cm={{ p['cm'] }}" class="label label-info">
@@ -47,7 +47,7 @@
             </div>
             {% for v in page_data.items %}
             <div class="col-md-3">
-                <div class="artlist text-center">
+                <div>
                    
                     <div class="text-left" >
                         <h3>{{ v.title }}</h3>

@@ -9,24 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
     <title>Learning English</title>
 
-    <link rel="shortcut icon" href="{{ url_for('static',filename='base/image/logo.jpeg') }}">
-    
+    <link rel="shortcut icon" href="{{ url_for('static',filename='base/image/logo.jpeg') }}">    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static',filename='base/css/bootstrap-art.css') }}">
-    <style>
-            .navbar-brand>img {
-                display: inline;
-            }
-    
-            .media {
-                padding: 3px;
-                border: 1px solid #ccc
-            }
-     </style>
-
-
 </head>
 
 <body>
@@ -34,7 +21,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
 
-            <div class="navbar-header">
+            <div>
 
                 <a href="{{ url_for('home.index',page=1) }}" class="navbar-brand" style="width:250px;">
                     <img src="{{ url_for('static',filename='base/image/logo.jpeg') }}" style="height:30px;">&nbsp;Learning Programming

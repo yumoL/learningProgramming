@@ -13,7 +13,7 @@
                 </div>
                 <div class="box-body table-responsive no-padding">
                         {% for msg in get_flashed_messages(category_filter=["ok"]) %}
-                        <p class="tag_add-box-msg" style="color:green">{{ msg }}</p>
+                        <p style="color:green">{{ msg }}</p>
                         {% endfor %}
                     <table class="table table-hover">
                         <tbody>

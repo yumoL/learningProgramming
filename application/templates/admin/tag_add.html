@@ -1,6 +1,6 @@
 {% extends "admin/admin.html" %} {% block content %}
 
-<section class="content" id="showcontent">
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
@@ -9,16 +9,14 @@
                 </div>
                 <form role="form" method="post">
                     <div class="box-body">
-                            {% for msg in get_flashed_messages(category_filter=["ok"]) %}
-                            <p class="tag_add-box-msg" style="color:green">{{ msg }}</p>
-                            {% endfor %}
-                            {% for msg in get_flashed_messages(category_filter=["err"]) %}
-                            <p class="tag_add-box-msg" style="color:red">{{ msg }}</p>
-                            {% endfor %}
+                        {% for msg in get_flashed_messages(category_filter=["ok"]) %}
+                        <p style="color:green">{{ msg }}</p>
+                        {% endfor %} {% for msg in get_flashed_messages(category_filter=["err"]) %}
+                        <p style="color:red">{{ msg }}</p>
+                        {% endfor %}
                         <div class="form-group">
-                            <label for="input_name">{{ form.name.label }}</label>
-                            {{ form.name }}
-                            {% for err in form.name.errors %}
+                            <label>{{ form.name.label }}</label>
+                            {{ form.name }} {% for err in form.name.errors %}
                             <div class="col-md-12">
                                 <font style="color:red">{{ err }}</font>
                             </div>
@@ -26,8 +24,7 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        {{ form.csrf_token }}
-                        {{ form.submit }}
+                        {{ form.csrf_token }} {{ form.submit }}
                     </div>
                 </form>
             </div>

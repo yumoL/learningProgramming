@@ -16,7 +16,7 @@
                 <form role="form" method="post">
                     <fieldset>
                         <div class="form-group">
-                            <label for="input_name">
+                            <label>
                                 <span class="glyphicon glyphicon-user"></span>&nbsp;{{ form.name.label }}</label>
                             {{ form.name }}
                         </div>
@@ -27,7 +27,7 @@
                         {% endfor %}
 
                         <div class="form-group">
-                            <label for="input_password">
+                            <label>
                                 <span class="glyphicon glyphicon-lock"></span>&nbsp;{{ form.pwd.label }}</label>
                             {{ form.pwd }}
                         </div>
@@ -38,7 +38,7 @@
                         {% endfor %}
 
                         <div class="form-group">
-                            <label for="input_repassword">
+                            <label>
                                 <span class="glyphicon glyphicon-lock"></span>&nbsp;{{ form.repwd.label }}</label>
                             {{ form.repwd }}
                         </div>

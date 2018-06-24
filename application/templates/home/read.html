@@ -22,8 +22,7 @@ content %}
     <div class="col-md-4" style="height:400px;">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h3 class="panel-title">
-                    <span class="glyphicon glyphicon-facetime-video"></span>&nbsp;</h3>
+                <h3 class="panel-title"></h3>
             </div>
             <div class="panel-body" style="height:280px;">
                 <table class="table">
@@ -109,8 +108,10 @@ content %}
                     <script>
                         $(document).ready(function () {
                             $("#btn-col").click(function () {
-                                var mid = {{ art.id }};
-                            var uid = {{ session["user_id"] }};
+                                var mid = {{ art.id }
+                            };
+                            var uid = {{ session["user_id"] }
+                        };
                         $.ajax({
                             url: "{{ url_for('home.artcol_add') }}",
                             type: "GET",

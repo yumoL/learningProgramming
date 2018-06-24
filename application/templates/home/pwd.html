@@ -16,7 +16,7 @@
             <form role="form" method="post">
                 <fieldset>
                     <div class="form-group">
-                        <label for="input_oldpwd">
+                        <label>
                             <span class="glyphicon glyphicon-lock"></span>&nbsp;{{ form.old_pwd.label }}</label>
                             {{ form.old_pwd }}
                     </div>
@@ -26,7 +26,7 @@
                         </div>
                     {% endfor %}
                     <div class="form-group">
-                        <label for="input_newpwd">
+                        <label>
                             <span class="glyphicon glyphicon-lock"></span>&nbsp;{{ form.new_pwd.label }}</label>
                             {{ form.new_pwd }}
                             {% for err in form.new_pwd.errors %}

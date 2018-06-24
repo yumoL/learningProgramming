@@ -1,5 +1,5 @@
 {% extends "home/home.html" %} {% block content %} {% include "home/menu.html" %}
-<div class="col-md-9" style="margin-top: 90px"> 
+<div class="col-md-9" style="margin-top: 90px">
     <div class="panel panel-warning">
         <div class="panel-heading">
             <h3 class="panel-title">
@@ -14,17 +14,16 @@
             <form role="form" method="post">
                 <fieldset>
                     <div class="form-group">
-                        <label for="input_name">
+                        <label>
                             <span class="glyphicon glyphicon-user"></span>&nbsp;{{ form.name.label }}
                         </label>
                         {{ form.name }}
                     </div>
                     {% for err in form.name.errors %}
-                        <div class="col-md-12">
-                            <font style="color:red">{{ err }}</font>
-                        </div>
-                    {% endfor %}
-                    {{ form.csrf_token }} {{ form.submit }}
+                    <div class="col-md-12">
+                        <font style="color:red">{{ err }}</font>
+                    </div>
+                    {% endfor %} {{ form.csrf_token }} {{ form.submit }}
 
 
 

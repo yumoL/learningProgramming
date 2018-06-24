@@ -1,8 +1,6 @@
-{% extends "admin/admin.html" %} 
+{% extends "admin/admin.html" %} {% block content %}
 
-{% block content %}
-
-<section class="content" id="showcontent">
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
@@ -11,34 +9,31 @@
                 </div>
                 <form role="form" method="post" enctype="multipart/form-data">
                     <div class="box-body">
-                            {% for msg in get_flashed_messages(category_filter=["err"]) %}
-                            <p class="tag_add-box-msg" style="color:red">{{ msg }}</p>
-                            {% endfor %}
-                            {% for msg in get_flashed_messages(category_filter=["ok"]) %}
-                            <p class="tag_add-box-msg" style="color:green">{{ msg }}</p>
-                            {% endfor %}
+                        {% for msg in get_flashed_messages(category_filter=["err"]) %}
+                        <p style="color:red">{{ msg }}</p>
+                        {% endfor %} {% for msg in get_flashed_messages(category_filter=["ok"]) %}
+                        <p style="color:green">{{ msg }}</p>
+                        {% endfor %}
                         <div class="form-group">
-                            <label for="input_title">{{ form.title.label }}</label>
-                            {{ form.title(value=art.title) }}
-                            {% for err in form.title.errors %}
+                            <label>{{ form.title.label }}</label>
+                            {{ form.title(value=art.title) }} {% for err in form.title.errors %}
                             <div class="col-me-12">
                                 <font style="color:red">{{ err }}</font>
                             </div>
                             {% endfor %}
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="input_info">{{ form.text.label }}</label>
+                            <label>{{ form.text.label }}</label>
                             <td>
-                                <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
-                               {{ form.text(value=art.text) }}
+                                <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script> {{ form.text(value=art.text) }}
                                 <script>
                                     CKEDITOR.replace('content');
-                
+
                                 </script>
                             </td>
 
-                            
+
                             {% for err in form.text.errors %}
                             <div class="col-me-12">
                                 <font style="color:red">{{ err }}</font>
@@ -48,15 +43,14 @@
 
 
                         <div class="form-group">
-                            <label for="input_tag_id">{{ form.tag_id.label}}</label>
-                            {{ form.tag_id(value=art.tag_id) }}
-                            {% for err in form.tag_id.errors %}
+                            <label>{{ form.tag_id.label}}</label>
+                            {{ form.tag_id(value=art.tag_id) }} {% for err in form.tag_id.errors %}
                             <div class="col-me-12">
                                 <font style="color:red">{{ err }}</font>
                             </div>
                             {% endfor %}
                         </div>
-                        
+
                     </div>
                     <div class="box-footer">
                         {{ form.csrf_token }} {{ form.submit }}

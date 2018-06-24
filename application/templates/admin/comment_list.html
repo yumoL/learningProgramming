@@ -2,7 +2,7 @@
 {% import "ui/admin_page.html" as pg %}
 {% block content %}
 
-<section class="content" id="showcontent">
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
@@ -12,17 +12,16 @@
                 </div>
                 <div class="box-body box-comments">
                         {% for msg in get_flashed_messages(category_filter=["ok"]) %}
-                        <p class="tag_add-box-msg" style="color:green">{{ msg }}</p>
+                        <p style="color:green">{{ msg }}</p>
                         {% endfor %}
                     {% for v in page_data.items %}
                     <div class="box-comment">
                         
                         <div class="comment-text">
-                            <span class="username">
+                            <span>
                                 {{ v.account.name }} commented at
                                 <span class="text-muted pull-right">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                    &nbsp; {{ v.addtime }}
+                                {{ v.addtime }}
                                 </span>
                             </span>
                             about article

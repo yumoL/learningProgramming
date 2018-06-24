@@ -2,7 +2,7 @@
 <section class="content-header">
 
 </section>
-<section class="content" id="showcontent">
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
@@ -12,9 +12,9 @@
                 </div>
                 <div class="box-body table-responsive no-padding">
                     {% for msg in get_flashed_messages(category_filter=["ok"]) %}
-                    <p class="tag_add-box-msg" style="color:green">{{ msg }}</p>
+                    <p style="color:green">{{ msg }}</p>
                     {% endfor %} {% for msg in get_flashed_messages(category_filter=["err"]) %}
-                    <p class="tag_add-box-msg" style="color:red">{{ msg }}</p>
+                    <p  style="color:red">{{ msg }}</p>
                     {% endfor %}
 
                     <table class="table table-hover">
