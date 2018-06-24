@@ -77,6 +77,7 @@ def user():
             flash("Username is already existed","err")
             return redirect(url_for("home.user"))
         user.name=data["name"]
+        session["user"]=user.name
         db.session().add(user)
         db.session().commit()
         flash("Username has been changed","ok")
