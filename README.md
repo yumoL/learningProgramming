@@ -1,8 +1,8 @@
-# Learning Programming
+# Artikkelipalvelu
 
-Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään artikkelipalvelu, jossa käyttäjä pääsee lukemaan tietokantaan tallennetuja artikkeleita ohjelmoinnista ja komentoimaan artikkeleita. Lisäksi käyttäjä voi tykätä artikkeleita.
+Sovellus toimii kurssin tietokantasovellus harjoitustyönä. Harjoitustyössä tehdään artikkelipalvelu, jossa käyttäjä pääsee lukemaan tietokantaan tallennetuja artikkeleita ja komentoimaan artikkeleita. Lisäksi käyttäjä voi tykätä artikkeleita.
 
-Sovelluksen ylläpitäjällä on oma liittymä, jonka kautta hän pystyy ylläpitämään käyttäjien jäsentietoja, lisäämään ja poistamaan artikkeleita sekä määrittelemään aiheita, joiden perusteella elokuvat luokitellaan.
+Sovelluksen ylläpitäjällä on oma liittymä, jonka kautta hän pystyy ylläpitämään käyttäjien jäsentietoja, lisäämään ja poistamaan artikkeleita sekä määrittelemään aiheita, joiden perusteella artikkelit luokitellaan.
 
 Toimintoja: 
 - Sisään ja ulos kirjautuminen
@@ -11,17 +11,21 @@ Toimintoja:
 - Artikkeleiden lisääminen ja poistaminen
 - Artikeleiden tykkääminen
 - Artikkeleiden luokitus aiheen perusteella
-- Elokuvien järjestäytyminen lukejien ja komenttien määrän perusteella
+- Elokuvien järjestäytyminen lukijien ja kommenttien määrän perusteella
 
 
 Heroku:
 
 [käyttäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/1/)
+
 käyttäjätunnus:user1 salasana:123
+
 käyttäjätunnus:user2  salasana:321
 
 [ylläpitäjä](https://tsoha-python-elokuvaforuumi.herokuapp.com/admin/)
+
 (super-ylläpitäjä) tunnus:super  salasana:abc
+
 (tavallinen ylläpitäjä) tunnus: normal  salasana:cba
 
 ## Dokumentaatio
