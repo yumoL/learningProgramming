@@ -10,7 +10,7 @@
                 <form role="form" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                         {% for msg in get_flashed_messages(category_filter=["ok"]) %}
-                        <p>style="color:green">{{ msg }}</p>
+                        <p style="color:green">{{ msg }}</p>
                         {% endfor %}
                         <div class="form-group">
                             <label>{{ form.title.label }}</label>

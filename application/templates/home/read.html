@@ -108,10 +108,8 @@ content %}
                     <script>
                         $(document).ready(function () {
                             $("#btn-col").click(function () {
-                                var mid = {{ art.id }
-                            };
-                            var uid = {{ session["user_id"] }
-                        };
+                                var mid = {{ art.id }};
+                            var uid = {{ session["user_id"] }};
                         $.ajax({
                             url: "{{ url_for('home.artcol_add') }}",
                             type: "GET",

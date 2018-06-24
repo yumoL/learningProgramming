@@ -11,7 +11,8 @@
                     <div class="box-body">
                         {% for msg in get_flashed_messages(category_filter=["ok"]) %}
                         <p style="color:green">{{ msg }}</p>
-                        {% endfor %} {% for msg in get_flashed_messages(category_filter=["err"]) %}
+                        {% endfor %} 
+                        {% for msg in get_flashed_messages(category_filter=["err"]) %}
                         <p style="color:red">{{ msg }}</p>
                         {% endfor %}
                         <div class="form-group">
