@@ -12,4 +12,4 @@ eli<img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaa
 
 Sen tulos näytetään tiedoston  [application/templates/home/artcol.html](https://github.com/yumoL/learningProgramming/blob/master/application/templates/home/artcol.html) riveillä 10-21:
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/tulos2.png">
-eli <imr src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/tyk%C3%A4tyt%20artikkelit.png">
+eli <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/tyk%C3%A4tyt%20artikkelit.png">
