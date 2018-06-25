@@ -28,7 +28,7 @@ INSERT INTO comment(content,addtime,art_id,user_id) values("kommenttikentälle s
 - Käyttäjä voi hakea artikkelia otsikon perusteella. Lisäksi käyttäjä voi järjestellä artikkeleita lukijien ja kommenttien määrän perusteella.
 - Artikkelin hakeminen otsikon perusteella:
 ```
-SELECT*FROM art WHERE title LIKE "%avainsana";
+SELECT*FROM art WHERE title LIKE "%avainsana%";
 ```
 - Artikkelin järjestäminen lukijien määrän perusteella:
 ```
@@ -85,7 +85,7 @@ UPDATE art SET title="uusi otsikko",text="uusi sisältö",tag_id=uuden auheen ai
 ```
 - Artikkelin listaaminen
 ```
-SELECT*FORM art;
+SELECT*FORM art ORDER BY addtime desc;
 ```
 - Artikkelin poistaminen:
 ```
@@ -103,7 +103,7 @@ UPDATE tag SET name="uusi nimi" WHERE id=muokattavan aiheen id;
 ```
 - Aiheen listaaminen
 ```
-SELECT*FORM tag;
+SELECT*FORM tag ORDER BY addtime desc;
 ```
 - Aiheen poistaminen:
 ```
@@ -131,12 +131,12 @@ DELETE FROM comment where user_id=poistavan käyttäjän id;
 ```
 SELECT account.name,art.title,comment.content,comment.addtime FROM account,art,comment WHERE comment.user_id=account.id AND comment.art_id=art.id ORDER BY comment.addtime desc;
 ```
-## Jokaisen ylläpitäjän toimienpiteet kirjataan ja ylläpitäjä näkee sekä oman että muiden ylläpitäjien toimenpiteet
+### Jokaisen ylläpitäjän toimienpiteet kirjataan ja ylläpitäjä näkee sekä oman että muiden ylläpitäjien toimenpiteet
 - Päiväkirjan lisääminen esim.uuden aiheen lisäämisestä
 ```
 INSETR INTO oplog(admin_id,reason,addtime) VALUES(ylläpitäjän id,"toimenpide",CURRENT_TIMESTAMP);
 ```
 - Toimenpiteen listaaminen
 ```
-SELECT*FROM oplog;
+SELECT*FROM oplog ORDER BY addtime desc;
 ```
