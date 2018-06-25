@@ -11,7 +11,7 @@ Toimintoja:
 - Artikkeleiden lisääminen ja poistaminen
 - Artikeleiden tykkääminen
 - Artikkeleiden luokitus aiheen perusteella
-- Elokuvien järjestäytyminen lukijien ja kommenttien määrän perusteella
+- Artikkeleiden järjestäytyminen lukijien ja kommenttien määrän perusteella
 
 
 Heroku:
