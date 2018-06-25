@@ -43,4 +43,6 @@ käyttäjätunnus:user2  salasana:321
 
 [Omat kokemukset](https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/omat%20kokemukset.md)
 
+[Yhteenvetokyselyt](https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/yhteenvetokyselyt.md)
+
 
