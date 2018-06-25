@@ -15,7 +15,7 @@ SELECT*FROM account WHERE name="syöttöentälle annettu nimi" ja pwd="syöttök
 
 Tavoite: Käyttäjä saada oman käyttäjätunnuksen kirjautuakseen sisään sovellukseen.
 ```
-INSERT INTO account(name,pwd,addtime) VALUES("nimi","salasana","CURRENT_TIMESTAMP);
+INSERT INTO account(name,pwd,addtime) VALUES("nimi","salasana",CURRENT_TIMESTAMP);
 ```
 
 ### Käyttäjä voi kommentoida artikkeleita
