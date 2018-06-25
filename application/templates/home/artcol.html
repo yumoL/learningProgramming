@@ -1,7 +1,4 @@
-{% extends "home/home.html" %} 
-{% import "ui/admin_page.html" as pg %}
-
-{% block content %} {% include "home/menu.html" %}
+{% extends "home/home.html" %} {% import "ui/admin_page.html" as pg %} {% block content %} {% include "home/menu.html" %}
 <div class="col-md-9">
     <div class="panel panel-warning">
         <div class="panel-heading">
@@ -11,19 +8,19 @@
         <div class="panel-body" style="margin-top: 20px">
             <ul class="col-md-12">
                 {% for v in page_data.items %}
-                <div >
-                    
+                <div>
+
                     <div>
                         <h4>{{ v.art.title }}
                             <a href="{{ url_for('home.read',id=v.art_id,page=1) }}" class="label label-primary pull-center">
                                 <span></span>Read</a>
                         </h4>
-                        
+
                     </div>
                 </div>
-
+                {% endfor %}
             </ul>
-            {% endfor %}
+
             <div class="col-md-12 text-center" style="margin-top:6px;">
                 {{ pg.page(page_data,'home.artcol') }}
             </div>
