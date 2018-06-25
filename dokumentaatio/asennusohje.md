@@ -2,7 +2,7 @@
 # Asennusohje
 
 ## Hakemiston lataaminen
-- Mennään projektin [etusivulle](https://github.com/yumoL/learningProgramming) ja klikataan painiketta Clone or downloads ja sitten painiketta Download Zip.
+- Mennään projektin [etusivuun](https://github.com/yumoL/learningProgramming) ja klikataan painiketta Clone or downloads ja sitten painiketta Download Zip.
 - Puretaan tiedostopakkauksen, jonka jälkeen saadaan hakemisto learningProgramming-master.
 
 ## Projektin lähettäminen herokuun
@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ```
 pip install --upgrade pip
 ```
-- Kirjaudutaan sisään Herokuun komennolla, tai jos käyttäjätunnusta ei vielä ole, pitää mennä Herokun [etusivulle](https://id.heroku.com/login) rekisteröimään.
+- Kirjaudutaan sisään Herokuun komennolla, tai jos käyttäjätunnusta ei vielä ole, pitää mennä Herokun [etusivuun](https://id.heroku.com/login) rekisteröimään.
 ```
 heroku login
 ```
