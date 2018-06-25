@@ -70,7 +70,7 @@ Ylläpitäjä pääsee ylläpitokentälle syöttämällä syöttökentille oikei
 
 ### Ylläpitäjän autorisointi
 Vain super-ylläpitäjällä on oikeus aiheen lisäämiseen, muokkaamiseen ja poistamiseen sekä käyttäjän ja kommentin poistamiseen. Jos tavallinen ylläpitäjä toimintaan, johon hänellä ei ole oikeus, häntä ohjataab 404-sivuun. 
-<img src="">
+<img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/404.png">
 
 
 ### Aiheen muokkaaminen ja listaaminen
