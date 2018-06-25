@@ -42,7 +42,7 @@ Sama kuin kommentin julkaisemisessa, vain sisään kirjautunut käyttäjä voi t
 Sisään kirjautunut käyttäjä voi muokata omaa käyttjätunnusta klikkaamalla painiketta _User center_. Lisäksi käyttäjä voi vaihtaa salasanaa klikkaamalla ensin painiketta _User center_ ja sitten painiketta _Change password_.
 
 
-### Komenttien ja tykättyjen artikkeleiden listaaminen
+### Kommenttien ja tykättyjen artikkeleiden listaaminen
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/komentin%20listaaminen.png">
 <imr src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/tyk%C3%A4tyt%20artikkelit.png">
 Sisään kirjautunut käyttäjä pääsee näkemään kaikki omat kommentit ja tykätyt artukkelit(jos niitä on) klikaamalla ensin painiketta _User center_ ja sitten _Comments history_/_Liked_. Käyttäjä voi lukea tykättyä artikkelia klikkamalla artikkelin otsikon oikealla olevaa painiketta _Read_.
@@ -70,7 +70,7 @@ Ylläpitäjä pääsee ylläpitokentälle syöttämällä syöttökentille oikei
 
 ### Ylläpitäjän autorisointi
 Vain super-ylläpitäjällä on oikeus aiheen lisäämiseen, muokkaamiseen ja poistamiseen sekä käyttäjän ja kommentin poistamiseen. Jos tavallinen ylläpitäjä toimintaan, johon hänellä ei ole oikeus, häntä ohjataab 404-sivuun. 
-<img src="">
+<img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/admin/404.png">
 
 
 ### Aiheen muokkaaminen ja listaaminen

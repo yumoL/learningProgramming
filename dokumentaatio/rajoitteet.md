@@ -5,7 +5,7 @@
 Sivunumero, jossa käyttäjä on, voisi merkitty seuraavasti: 
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/sivutuksenIdea.jpg">
 - Jos sivussa ei ole yhtään dataa(esim. tyhjässä kommenttisivussa ei ole yhtään kommenttia),painiketta "last page" klikatessa käyttäjä ohjataan 404-sivuun.
-Painikkeen "last page" pitäisi olla autimaattisesti pois käytöstä, jos sivussa ei ole yhtään dataa. 
+Painikkeen "last page" pitäisi olla automaattisesti pois käytöstä, jos sivussa ei ole yhtään dataa. 
 
 ### Aikaformaatti ja aikavyöhyke
 Aikaformaatti näyttää normaalilta paikalisessa Sqlitessä, mutta kun siirrytään PostgreSQL:ään aiakformaatti on muodossa"2018-06-24 13:00:12.266359", joka näyttää vähän sekavalta. Myös PostgreSQL:ään tallennuttu aika on aina kolme tuntia myöhemmin kuin paikallista aikaa johtuen kenties siitä, että PostgreSQL:ässä käytetään paikallisen ajan sijaan palvelimen aikaa. 
