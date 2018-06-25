@@ -57,11 +57,11 @@ UPDATE account SET name="uusi salasana" WHERE id=sisäänkirjautuneen käyttäj�
 ### Käyttäjä näkee omat kommentit ja tykätyt artikkelit
 - Kommentin listaaminen
 ```
-SELECT account.name,comment.content,art.title FROM account,comment,art WHERE account.id=sisään kirjautuneen käyttäjän id AND art.id=comment.art_id AND account.id=comment.user_id;
+SELECT account.name,comment.content,art.title FROM account,comment,art WHERE account.id=sisään kirjautuneen käyttäjän id AND art.id=comment.art_id AND account.id=comment.user_id ORDER BY comment.addtime desc;
 ```
 -Tykätyn artikkelin listaaminen
 ```
-SELECT art.title FROM account,art,artcol WHERE art.id=artcol.art_id AND account.id=sisään kirjautuneen käyttäjän id AND artcol.user_id=account.id;
+SELECT art.title FROM account,art,artcol WHERE art.id=artcol.art_id AND account.id=sisään kirjautuneen käyttäjän id AND artcol.user_id=account.id ORDER BY artcol.addtime desc;
 ```
 
 ## Ylläpitäjä
