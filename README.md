@@ -8,6 +8,7 @@ Toimintoja:
 - Sisään ja ulos kirjautuminen
 - Uuden käyttäjän rekisteri
 - Kommentin lisääminen
+- Aiheiden lisääminen ja poistaminen
 - Artikkeleiden lisääminen ja poistaminen
 - Artikeleiden tykkääminen
 - Artikkeleiden luokitus aiheen perusteella
