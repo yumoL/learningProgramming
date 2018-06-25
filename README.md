@@ -40,6 +40,7 @@ käyttäjätunnus:user2  salasana:321
 [Asennusohje](https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/asennusohje.md)
 
 [Sovelluksen rajoitteet ja puuttuvat ominaisuudet](https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/rajoitteet.md)
+
 [Omat kokemukset](https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/omat%20kokemukset.md)
 
 
