@@ -2,7 +2,7 @@
 
 - Käyttäjä(User) käyttää sovellusta, jokaisella käyttäjällä on oma uniikki käyttäjätunnus(name), salasana(pwd) ja rekisteröinnin aika(addtime)
 
-- Artikkelilla(Art) on otsikko(title),sisältö(text), lukejien ja komenttien määrä sekä lisäämisaika(addtime). Yksi elokuva kuuluu vain yheen kategoriaan(Tag), toisaalta yhdellä kategorialla voi olla useampaa artikkelia. 
+- Artikkelilla(Art) on otsikko(title),sisältö(text), lukijien ja komenttien määrä sekä lisäämisaika(addtime). Yksi artikkeli kuuluu vain yheen kategoriaan(Tag), toisaalta yhdellä kategorialla voi olla useampaa artikkelia. 
 
 - Käyttäjä kirjoittaa kommentteja(Comment) artikkeleista. Komentilla on sisältö(content) ja muokkaamisaika(addtime). Yksi käyttäjä voi kirjoittaa useita kommentteja useammasta artikkelista, yhdellä kommentilla on vain yksi kirjoittaja.
 
@@ -100,13 +100,13 @@ Kaikki tietokantaulut ovat toisessa normaalimuodossa:
 
 ### Kolmas normaalimuoto
 - Tietokantataulut Tag, Art, Account,Admin eivät ole kolmanessa normaalimuodossa:
-Taulussa Tag on funktionaalinen riippuvuus addtime->name,eli aiheen lisäämisaika voidaan päätellä sen nimen perusteella,      smaalla kaikki sarakkeet ovat selvitettävissä taulun pääavaimen(id) kautta, joten taulusta löytyy myös transitiivinen riippuvuus. Samalla muista tauluista löytyy sarakeita, jotka ovat transiivisesti riippuvaisia pääavimesta. 
+Taulussa Tag on funktionaalinen riippuvuus addtime->name,eli aiheen lisäämisaika voidaan päätellä sen nimen perusteella,      samalla kaikki sarakkeet ovat selvitettävissä taulun pääavaimen(id) kautta, joten taulusta löytyy myös transitiivinen riippuvuus. Samalla muista tauluista löytyy sarakeita, jotka ovat transiivisesti riippuvaisia pääavimesta. 
 
 ### Perustelu normaalisoinnin puutteille
 - Tag:
 Aiheen nimen pitää olla uniikki. Ei ole järkevää, että kaksi artikkelia kuuluu erilaisiin kategorioihin, mutta silti samasta aiheesta. 
 - Art:
-Artikkelin otsikon pitää olla uniikki. Lukijan etusivulle näytetään vain artikkeleiden otsikot, jos eri artikelilla on sama otsikko, lukijalla ei voi päätellä otsikon perusteella kumpaa artikkelia hän haluaa lukea. 
+Artikkelin otsikon pitää olla uniikki. Lukijan etusivussa näytetään vain artikkeleiden otsikot, jos eri artikelilla on sama otsikko, lukijalla ei voi päätellä otsikon perusteella kumpaa artikkelia hän haluaa lukea. 
 - Account:
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/comment.png">
 Käyttäjän nimen pitää olla uniikki. Kommenttilistassa näytetään kommentoijan nimi ja kommentin sisältö, jos eri käyttäjällä on sama nimi, muut eivät voi päätellä, kuka oli kirjoittanut jonkin kommentin. 
