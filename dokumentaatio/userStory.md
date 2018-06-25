@@ -131,7 +131,7 @@ DELETE FROM comment where user_id=poistavan käyttäjän id;
 ```
 SELECT account.name,art.title,comment.content,comment.addtime FROM account,art,comment WHERE comment.user_id=account.id AND comment.art_id=art.id ORDER BY comment.addtime desc;
 ```
-## Jokaisen ylläpitäjän toimienpiteet kirjataan ja ylläpitäjä näkee sekä oman että muiden ylläpitäjien toimenpiteet
+### Jokaisen ylläpitäjän toimienpiteet kirjataan ja ylläpitäjä näkee sekä oman että muiden ylläpitäjien toimenpiteet
 - Päiväkirjan lisääminen esim.uuden aiheen lisäämisestä
 ```
 INSETR INTO oplog(admin_id,reason,addtime) VALUES(ylläpitäjän id,"toimenpide",CURRENT_TIMESTAMP);
