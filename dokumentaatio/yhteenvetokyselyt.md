@@ -14,4 +14,4 @@ Yhteenvetokysely on sama kuin "SELECT account.name,art.title,comment.content,com
 Sen tulos näytetään tiedoston  [application/templates/home/artcol.html](https://github.com/yumoL/learningProgramming/blob/master/application/templates/home/artcol.html) riveillä 10-21:
 <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/tulos2.png">
 eli <img src="https://github.com/yumoL/learningProgramming/blob/master/dokumentaatio/pictures/k%C3%A4ytt%C3%A4j%C3%A4/tyk%C3%A4tyt%20artikkelit.png">
-Yhteenvetokysely on sama kuin "SELECT art.title FROM account,art,artcol WHERE account.id=session["user_id"] AND art.id=artcol.art_id;"
+Yhteenvetokysely on sama kuin "SELECT art.title FROM art,artcol WHERE artcol.user_id=session["user_id"] AND art.id=artcol.art_id;"
